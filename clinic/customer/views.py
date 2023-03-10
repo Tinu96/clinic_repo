@@ -42,12 +42,13 @@ def bookingg(request):
         dt=request.POST.get("dat")
         dt=request.POST.get('dat')
         tme=request.POST.get('tm')
-        te=Timeslots.objects.get(name=tme)
+        te=Timeslots.objects.get(time=tme)
         dotr=request.POST.get('doc')
-        obj=ForBooking.objects.create(name=nam,phone=phn,services=se,bookingdate=dt,timeslot=te,docter=dotr)
+        do=Beautician.objects.get(name=dotr)
+        obj=ForBooking.objects.create(name=nam,phone=phn,services=se,bookingdate=dt,timeslot=te,docter=do)
         obj.save()
         print("sucess")
-        return redirect(request,"bookingg")
+        return redirect("bookingg")
    
     return render(request, "booking.html",context)    
 
