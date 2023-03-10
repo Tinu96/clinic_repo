@@ -1,0 +1,92 @@
+{%extends 'base1.html'%}
+{%block body%}
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+<!-- Content wrapper -->
+<div class="content-wrapper">
+    <!-- Content -->
+    
+    <div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Intro Offers /</span> Manage Intro Offers</h4>
+    <a href="{%url 'add-introoffers'%}" class="btn btn-outline-success">Add a Intro Offer</a>
+    <br>
+<br>
+<a href="{%url 'dashboard'%}" class="btn btn-success">Go Back</a>
+{%if introoffers%} 
+    <!-- Basic Bootstrap Table -->
+    <div class="card">
+    <h5 class="card-header"><strong>Intro Offers Details</strong> </h5>
+    <div class="table-responsive text-nowrap">
+    <table class="table">
+    <thead>
+      <tr>
+        <th><strong>Intro Offers</strong></th>
+        <th><strong>validity</strong></th>
+        <th><strong>Image</strong></th>
+        <th><strong>Status</strong></th>
+        <th><strong>Description</strong></th>
+        <th><strong>Actions</strong></th>
+      </tr>
+    </thead>
+    
+    {%for introoffer in introoffers%}
+    <tbody class="table-border-bottom-0">
+      <tr>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{introoffer.name}}</strong></td>
+        <td>{{introoffer.validity}}</td>
+        <td><img
+          src="{{introoffer.image.url}}"
+          alt="user-avatar"
+          class="d-block rounded"
+          height="100"
+          width="100"
+          id="uploadedAvatar"
+        /></td>
+        <td>
+          {%if introoffer.status == "available"%}
+          <span class="badge bg-label-success me-1">Available</span>
+          {%elif introoffer.status == "unavailable"%}
+          <span class="badge bg-label-danger me-1">Unavailable</span>
+          {%elif introoffer.status == "expired"%}
+          <span class="badge bg-label-danger me-1">Expired</span>
+          {%else%}
+          <span class="badge bg-label-success me-1">Redeemed</span>
+          {%endif%}
+        </td>
+        <td> {{introoffer.desc}}</td>
+        <td>
+          <div class="dropdown">
+            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+              <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{%url 'view-introoffer' introoffer.id%}"
+              ><i class="bx bx-info-circle me-1"></i> View</a>
+            <a class="dropdown-item" href="{%url 'update-introoffer' introoffer.id%}"
+            ><i class="bx bx-edit-alt me-1"></i> Edit</a>
+            <a class="dropdown-item" href="{%url 'delete-introoffer' introoffer.id%}"
+              ><i class="bx bx-trash me-1"></i> Delete</a>
+             
+          </div>
+          </div>
+        </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+    </table>
+    </div>
+    </div>
+    <!--/ Basic Bootstrap Table -->
+    {%else%}
+    <div class="py-5">
+        <div class="row justify-content-center mb-3">
+          <center><strong>Sorry! No Intro Offers found at the moment</strong></center>
+          <a href="{%url 'add-introoffers'%}" class="btn btn-outline-success">Add a Intro Offer</a>
+        </div>
+    </div>
+    {%endif%}
+
+{%endblock%}

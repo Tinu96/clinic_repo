@@ -1,0 +1,73 @@
+{%extends 'base.html'%}
+{% block title %}My account{% endblock %}
+
+{%block body%}
+ <!-- Style variation -->
+              <div  style="margin-left:10px;">
+              <a href="{%url 'home' %}" class=" btn btn-warning">Go Back</a><br> 
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark text-white mb-3">
+                    <div class="card-header" style="text-align:center;">Profile Manager</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">Profile setting</h5> -->
+                      <p class="card-text">You can view and update your Profile here.</p>
+                      <a href="{%url 'profile-manager'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark text-white mb-3">
+                    <div class="card-header" style="text-align:center;">Change Password</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">Change Password</h5> -->
+                      <p class="card-text">Reset your password here.</p>
+                      <a href="{%url 'change-password'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark text-white mb-3">
+                    <div class="card-header" style="text-align:center;">My Booked Service</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">My Booked Services</h5> -->
+                      <p class="card-text">Have a look at your bookings.</p>
+                      {% comment %} <a href="{%url 'bookings'%}" class="btn btn-primary">Manage</a> {% endcomment %}
+                      <a href="{%url 'service-orders'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark text-white mb-3">
+                    <div class="card-header" style="text-align:center;">My Membership Plan</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">My Membership Plan</h5> -->
+                      <p class="card-text">See your membership plan here.</p>
+                      <a href="{%url 'my-memberships'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark text-white mb-3">
+                    <div class="card-header" style="text-align:center;">My Packages</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">My Packages</h5> -->
+                      <p class="card-text">Have a look at the packages you bought.</p>
+                      <a href="{%url 'my-packages'%}"  class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-xl-4">
+                  <div class="card bg-dark  text-white mb-3">
+                    <div class="card-header" style="text-align:center;">My Gift Cards</div>
+                    <div class="card-body">
+                      <!-- <h5 class="card-title text-white">My Gift Cards</h5> -->
+                      <p class="card-text">Manage your giftcards here.</p>
+                      <a href="{%url 'my-giftcards'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+{%endblock%}

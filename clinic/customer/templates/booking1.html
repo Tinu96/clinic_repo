@@ -1,0 +1,747 @@
+{%extends 'base.html'%}
+{%block body%}
+{%load static%}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href={%static "css/booking.css"%}>
+    <!-- {% comment %} <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>   {% endcomment %} -->
+
+    <script src="https://kit.fontawesome.com/a91a27e46f.js" crossorigin="anonymous"></script>
+    <script src="{%static 'js/book1.js' %}" defer ></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+    
+         $('.checkoption2').click(function() {
+            $('.checkoption2').not(this).prop('checked', false);
+         });
+    
+      });
+      </script>
+</head>
+
+
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="categories_list">
+        <h4>DEPARTMENTS</h4>
+
+        <div class="tabbable-responsive">
+          <div class="tabbable">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              {% comment %} <li class="nav-item">
+                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">ALL SERVICES</a>
+              </li> {% endcomment %}
+              {%for category in categories%}
+              <li class="nav-item">
+                <a class="nav-link tst" id="{{category.id}}" data-toggle="tab" href="#" onClick="catgoryIdFetch(event.target.id)" role="tab" aria-controls="second" aria-selected="false">{{category.category_name}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="booking_categories">
+        <h4>SERVICES</h4>
+
+        <div class="tabbable-responsive">
+          <div class="tabbable">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              {% comment %} <li class="nav-item">
+                <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="true">ALL SERVICES</a>
+              </li> {% endcomment %}
+              {%for service in services%}
+              <li class="nav-item">
+                <a class="nav-link tst" id="{{service.id}}" data-toggle="tab" href="#" onClick="catgoryIdFetch(event.target.id)" role="tab" aria-controls="second" aria-selected="false">{{service.name}}</a>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+        
+
+
+
+          </div>
+        </div>
+
+
+        <div class="card-body p-0">
+          <div class="tab-content">
+            {% comment %} <div class="tab-pane fade " id="first" role="tabpanel" aria-labelledby="first-tab">
+              
+              <div class="accordion" id="accordionExample">
+
+                  <div class="card">
+                      <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false">     
+                          <span class="title">Liquid (hard) Gel Full Set</span>
+                          <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+                      </div>
+                      <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+                          <div class="card-body">
+    
+                            <div class="package-box">
+                              <div class="row">
+                                <div class="col-lg-10">
+                                  <p>Liquid (hard) Gel Full Set</p>
+                                </div>
+                                <div class="col-lg-2">
+                                  <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-1" value="check-1" id="check-1"></div>
+                                </div>
+                              </div>
+                            </div>
+    
+                            <div class="add_ons">
+                              <div class="row">
+                                <div class="col-12">
+                                  <h5>SUGGESTED Add-onS</h5>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="sub-box">
+                                  <p>Percussion Therapy</p>
+                                  <div class="add-sug">
+                                    <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-2" value="check-2" id="check-2"></div>
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="sub-box">
+                                  <p>Percussion Therapy</p>
+                                  <div class="add-sug">
+                                    <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-2" value="check-2" id="check-2"></div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+    
+                            <div class="provider-section">
+                              <h5>Select Service Provider</h5>
+    
+                              <div><input type="checkbox" class="checkoption" value="1" > Any Service Provider </div>
+                              <div><input type="checkbox" class="checkoption" value="2" > Any Male Service Provider </div>
+                              <div><input type="checkbox" class="checkoption" value="3" > Any Female Service Provider </div>
+                            
+                            </div>
+    
+                            <div class="provider-list">
+                              <div class="col-lg-12 p-0">
+    
+                                <div class="pl-box"><input type="checkbox" class="checkoption1" value="4" > Jose </div>
+                                <div class="pl-box"><input type="checkbox" class="checkoption1" value="5" > Daniel </div>
+                                <div class="pl-box"><input type="checkbox" class="checkoption1" value="6" > Ariel </div>
+    
+
+                              </div>
+                              
+                            </div>
+    
+                            <div class="date_time">
+                              <h5>SELECT DATE AND TIME</h5>
+                                <div class="row">
+                                  <div class="col-lg-6">
+                                    <form action="">
+                                      <input class="dtp" type="date" id="date" name="date">
+                                    </form>
+                                  </div>
+                                  <div class="col-lg-6">
+                                    <select class="dtp" name="time" id="time">
+                                      <option value=""></option>
+                                      <option value="">09:00am</option>
+                                      <option value="">10:00am</option>
+                                      <option value="">01:00pm</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+    
+                            <button class="add_service" id="" role="button" tabindex="0" type="button">Add anothrer Services </button>
+    
+                            <div class="booking-forwhome">
+                              <h5>Who are you booking for?</h5>
+    
+                              <div class="select-box">
+                              <select class="dtp" name="booking" id="booking">
+                                <option value="user-icon"> Name (Me)</option>
+                                <option value="">Add family or freinds</option>
+                              </select>
+                              </div>
+                              
+                              <div class="relation_tab">
+                                <h5>Add new family of freind</h5>
+                                <h6>relationship to user</h6>
+                                
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" id="pills-one-tab" data-toggle="pill" href="#pills-one" role="tab" aria-controls="pills-one" aria-selected="true">Parent</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" id="pills-two-tab" data-toggle="pill" href="#pills-two" role="tab" aria-controls="pills-two" aria-selected="false">Spouse</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" id="pills-three-tab" data-toggle="pill" href="#pills-three" role="tab" aria-controls="pills-three" aria-selected="false">Child</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" id="pills-four-tab" data-toggle="pill" href="#pills-four" role="tab" aria-controls="pills-four" aria-selected="false">Sibling</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" id="pills-five-tab" data-toggle="pill" href="#pills-five" role="tab" aria-controls="pills-five" aria-selected="false">Pet</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" id="pills-six-tab" data-toggle="pill" href="#pills-six" role="tab" aria-controls="pills-six" aria-selected="false">Freind</a>
+                                  </li>
+                                </ul>
+                                <div class="tab-content" id="pills-tabContent">
+                                  <div class="tab-pane fade show active" id="pills-one" role="tabpanel" aria-labelledby="pills-one-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">First Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="lname">Last Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="lname" id="lname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                  </div>
+                                  <div class="tab-pane fade" id="pills-two" role="tabpanel" aria-labelledby="pills-two-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">First Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="lname">Last Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="lname" id="lname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                  </div>
+                                  <div class="tab-pane fade" id="pills-three" role="tabpanel" aria-labelledby="pills-three-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">First Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="lname">Last Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="lname" id="lname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="bdate">Birth Date</label>
+                                          <div class="row">
+                                            <div class="col-lg-4">
+                                              <div class="select-box">
+                                                <select class="formcontrol_F" name="month" id="month">
+                                                <option value="user-icon">Month</option>
+                                                <option value="">Januvary</option>
+                                                <option value="">Februvary</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                              <div class="select-box">
+                                                <select class="formcontrol_F" name="month" id="month">
+                                                <option value="user-icon">Day</option>
+                                                <option value="">1</option>
+                                                <option value="">2</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                              <div class="select-box">
+                                                <select class="formcontrol_F" name="month" id="month">
+                                                <option value="user-icon">Year</option>
+                                                <option value="">2023</option>
+                                                <option value="">2022</option>
+                                                </select>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email (Optional)</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number (Optional)</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    
+    
+                                  </div>
+                                  <div class="tab-pane fade" id="pills-four" role="tabpanel" aria-labelledby="pills-four-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">First Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="lname">Last Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="lname" id="lname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                  </div>
+                                  <div class="tab-pane fade" id="pills-five" role="tabpanel" aria-labelledby="pills-five-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="Category">Pet Category</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="Category" id="Category">
+                                            <option value="user-icon">Select Category</option>
+                                            <option value="">Dog</option>
+                                            <option value="">Cat</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email (Optional)</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number (Optional)</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                  </div>
+                                  <div class="tab-pane fade" id="pills-six" role="tabpanel" aria-labelledby="pills-six-tab">
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="email">Email</label>
+                                          <input type="email" id="email" name="email"  placeholder="" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="phone">Phone Number</label>
+                                          <input type="tel" onkeypress="return /[0-9]/i.test(event.key)" placeholder="" name="phone" id="phone" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="fname">First Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="fname" id="fname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="lname">Last Name</label>
+                                          <input onkeydown="return /[a-z]/i.test(event.key)" type="text" placeholder="" name="lname" id="lname" required="required" autofocus="autofocus" autocapitalize="none" class="formcontrol_F">
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                    <div class="row">
+                                      <div class="col-lg-6">
+                                        <div class="form-groupfield">
+                                          <label for="gender">Gender</label>
+                                          <div class="select-box">
+                                            <select class="formcontrol_F" name="gender" id="gender">
+                                            <option value="user-icon">Select Gender (Optional)</option>
+                                            <option value="">Male</option>
+                                            <option value="">Female</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+    
+                                  </div>
+    
+                                  <div class="row">
+                                    <div class="col-lg-6">
+                                      <button class="btn_save" id="" role="button" tabindex="0" type="button">Save</button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <button class="btn_clear" id="" role="button" tabindex="0" type="button">Clear</button>
+                                    </div>
+                                  </div>
+    
+                                </div>
+    
+                              </div>
+    
+                            </div>
+    
+                            <button class="book_btn" id="" role="button" tabindex="0" type="button" data-toggle="modal" data-target="#exampleModalCenter">BOOK APPOINTMENT </button>
+
+                          
+    
+                            <div class="package-box">
+                              <div class="row">
+                                <div class="col-lg-10">
+                                  <p>Liquid (hard) Gel Full Set</p>
+                                </div>
+                                <div class="col-lg-2">
+                                  <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-1" value="check-1" id="check-1"></div>
+                                </div>
+                              </div>
+                            </div>
+    
+                            <div class="add_ons">
+                              <div class="row">
+                                <div class="col-12">
+                                  <h5>SUGGESTED Add-onS</h5>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="sub-box">
+                                  <p>Percussion Therapy</p>
+                                  <div class="add-sug">
+                                    <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-2" value="check-2" id="check-2"></div>
+                                  </div>
+                                </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <div class="sub-box">
+                                  <p>Percussion Therapy</p>
+                                  <div class="add-sug">
+                                    <h6>$ 95</h6>
+                                  <div class="select-bx"><input type="checkbox" name="check-2" value="check-2" id="check-2"></div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                            </div>
+    
+                            <div class="provider-section">
+                              <h5>Select Service Provider</h5>
+    
+                              <div><input type="checkbox" class="checkoption" value="1" > Any Service Provider </div>
+                              <div><input type="checkbox" class="checkoption" value="2" > Any Male Service Provider </div>
+                              <div><input type="checkbox" class="checkoption" value="3" > Any Female Service Provider </div>
+    
+                                <!-- <div><input type="checkbox" name="check-any" value="check-any" id="check-any">
+                                  <label for="check-any">Any Service Provider</label></div>
+                                <div><input type="checkbox" name="check-male" value="check-male" id="check-male">
+                                  <label for="check-male">Any Male Service Provider</label></div>
+                                <div><input type="checkbox" name="check-female" value="check-female" id="check-female">
+                                  <label for="check-female">Any Female Service Provider</label></div> -->
+                              
+                            </div>
+    
+                            <div class="provider-list">
+                              <div class="col-lg-12 p-0">
+    
+                                <div class="pl-box"><input type="checkbox" class="checkoption2" value="4" > Jose </div>
+                                <div class="pl-box"><input type="checkbox" class="checkoption2" value="5" > Daniel </div>
+                                <div class="pl-box"><input type="checkbox" class="checkoption2" value="6" > Ariel </div>
+    
+                                <!-- <div class="pl-box"><input type="checkbox" name="check-n1" value="check-n1" id="check-n1" >
+                                  <label for="check-n1">Jose</label></div>
+                                <div class="pl-box"><input type="checkbox" name="check-n2" value="check-n2" id="check-n2" >
+                                  <label for="check-n2">Daniel</label></div>
+                                <div class="pl-box"><input type="checkbox" name="check-n3" value="check-n3" id="check-n3" >
+                                  <label for="check-n3">Ariel</label></div> -->
+                              </div>
+                              
+                            </div>
+    
+                            <div class="date_time">
+                              <h5>SELECT DATE AND TIME</h5>
+                              <div class="row">
+                              <div class="col-lg-6">
+                                <form action="">
+                                  <input class="dtp" type="date" id="date" name="date">
+                                </form>
+                              </div>
+                              <div class="col-lg-6">
+                                <select class="dtp" name="time" id="time">
+                                  <option value=""></option>
+                                  <option value="">09:00am</option>
+                                  <option value="">10:00am</option>
+                                  <option value="">01:00pm</option>
+                                </select>
+                              </div>
+                            </div>
+                            </div>
+    
+                            <button class="add_service" id="" role="button" tabindex="0" type="button">Add anothrer Services </button>
+    
+                            <button class="book_btn" id="" role="button" tabindex="0" type="button">BOOK APPOINTMENT </button>
+    
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card">
+                      <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">     
+                          <span class="title">Ombre Full Set</span>
+                          <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+                      </div>
+                      <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                          <div class="card-body">
+                            Ombre Full Set
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="card">
+                      <div class="card-header collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false">
+                          <span class="title">Bath Bomb Pedicure</span>
+                          <span class="accicon"><i class="fas fa-angle-down rotate-icon"></i></span>
+                      </div>
+                      <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                          <div class="card-body">
+                            Bath Bomb Pedicure
+                          </div>
+                      </div>
+                  </div>
+
+              </div> 
+
+            </div> {% endcomment %}
+
+            <div class="tab-pane fade show active" id="second" role="tabpanel" aria-labelledby="second-tab">
+              {% comment %} <h5 class="card-title">Second Tab header</h5> {% endcomment %}
+              <div class="accordion" id="accordionExample">
+                <input type="hidden" value="{{ csrf_token }}" id="csrf-val" >
+                <input type="hidden" value="{{request.user}}" id="user" >
+              </div>
+
+            </div>
+          </div>      
+        </div>
+
+
+      </div>
+    </div>				   	
+ </div>    
+</div>
+
+
+   <style>
+    .details_popup p{font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.details_popup{
+    border: 1px solid #dfdfdf;
+    padding: 10px;
+    text-transform: uppercase;
+}
+.modal-title{text-transform: uppercase;}
+.waring_date .fas{color: red;}
+.waring_date{font-size: 12px;text-align: center;text-transform: none;font-style: italic;}
+   </style>
+
+   <script>$(document).ready(function() {
+        $('#submit').click(function() {
+             $("input:radio[name=language]:checked")[0].checked = false;
+         });
+    });</script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+    
+         $('.checkoption').click(function() {
+            $('.checkoption').not(this).prop('checked', false);
+         });
+    
+      });
+      </script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+    
+         $('.checkoption1').click(function() {
+            $('.checkoption1').not(this).prop('checked', false);
+         });
+    
+      });
+      </script>
+
+
+
+
+{%endblock%}

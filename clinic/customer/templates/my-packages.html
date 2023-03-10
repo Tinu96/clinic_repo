@@ -1,0 +1,148 @@
+{%extends 'base.html'%}
+{% block title %}My packages{% endblock %}
+
+{%block body%}
+
+<div class="row">
+
+    <div class="col-4"></div>
+    <div class="col-4">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-4"></div>
+</div>
+<!-- Header-->
+
+
+
+<header class="bg-primary py-0">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="text-center text-white">
+            <h1 class="display-4 fw-bolder">My Packages</h1>
+            <p class="lead fw-normal text-white-50 mb-0">Health and Beauty</p>
+        </div>
+    </div>
+</header>
+<div style="margin-left:10px;">
+    <a href="{%url 'my-account' %}" class=" btn btn-warning">Go Back</a><br>
+</div>
+<br>
+<!-- Section-->
+<div class="container">
+    <div class="container-fluid">
+
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {%if packages%}
+
+            {% for package in packages%}
+            {%if package.status == "booked"%}
+
+            {%comment%}
+            <div class="col mb-5">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img class="card-img-top" src="{{package.package.image.url}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder">{{package.package.name}}</h5>
+                            <!-- Product price-->
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+
+                            <strong>Price: {{cur.currency_type}} {{package.package.price}} </strong>
+                            {% endif %}
+                            {%endfor%}
+                            <!-- Booking ID-->
+                            <!-- <p><strong>Booking ID: {{book.id}} </strong></p> -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <!-- <strong>Booked Slot:</strong> -->
+                            <p>{{package.package.desc}}</p>
+                            <p><strong>User Name:</strong> {{package.user}}</p>
+                            <p><strong>Status:</strong> {{package.status}}</p>
+                            <a href="{%url 'packages'%}" class="btn btn-outline-success">Renew</a>
+                            {%if package.status == "booked"%}
+                            <a href="{%url 'package-status' package.id%}" class="btn btn-outline-danger">Cancel</a>
+                            {%endif%}
+                        </div>
+                        <div class="col-2">
+
+                            <!-- <a href="" class="btn btn-outline-success">Update</a> -->
+
+                        </div>
+                        <div class="col-2"></div>
+                    </div>
+                </div>
+            </div>
+            {%endcomment%}
+
+
+            <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" style="width:100%;height:250px;"
+                            src="{{package.package.image.url}}" alt="">
+                        <div class="product-action">
+                            <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a> -->
+                            <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-info"></i></a> -->
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <a class="h6 text-decoration-none text-truncate" href="">{{package.package.name}}</a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>{{package.package.desc}}</h5>
+                            <h6 class="text-muted ml-2"><del></del></h6>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+
+                            <h5>Price:{{cur.currency_type}} {{package.package.price}}</h5>
+                            {% endif %} 
+                            {%endfor%}
+                            <h6 class="text-muted ml-2"><del></del></h6>
+                        </div>
+                        <div>
+                            <a href="{%url 'packages'%}" type="button" class="btn btn-primary">Renew</a>
+                            {%if package.status == "booked"%}
+                            <a href="{%url 'package-status' package.id%}" type="button" class="btn btn-dark">Cancel</a>
+                            {%endif%}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            {%endif%}
+            {%endfor%}
+            {%else%}
+            <div class="row col-4"></div>
+            <div class="row col-4"><strong>Sorry! No Packages found, please buy any of our Packages. </strong></div>
+            <div class="row col-4"></div>
+            {%endif%}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8"></div>
+        <div class="col-2"></div>
+    </div>
+
+</div>
+
+{%endblock%}

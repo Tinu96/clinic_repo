@@ -1,0 +1,212 @@
+{%extends 'base.html'%}
+{% block title %} Cart{% endblock %}
+
+{%block body%}
+
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="{%url 'home'%}">Home</a>
+                <a class="breadcrumb-item text-dark" href="{%url 'shop'%}">Shop</a>
+                <span class="breadcrumb-item active">Shopping Cart</span>
+            </nav>
+    <a href="{%url 'shop'%}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+<br>
+{%if cart%}
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Products</th>
+                            <th></th>
+                            <th>Price</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    {%for c in cart%}
+                    <tbody class="align-middle">
+                        {%if c.giftcard%}
+                        <tr>
+                            <td class="align-middle"><img src="{{c.giftcard.img.url}}" alt="" style="width: 50px; height:50px;"></td>
+                            <td class="align-middle"><strong>{{c.giftcard.name}} </strong></td>
+                            {%for cur in currency%}
+        {% if cur.status == True %}
+
+                            <td class="align-middle"><strong>{{cur.currency_type}} {{c.giftcard.price}}</strong></td>
+                            {% endif %} 
+                            {%endfor%}
+                            <!-- <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td> -->
+                            <!-- <td class="align-middle">{{c.giftcard.currency}}{{c.giftcard.price}}</td> -->
+                            <td class="align-middle"><a href="{%url 'cart-delete' c.id%}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+                        {%elif c.membership%}
+
+                        <tr>
+                            <td class="align-middle" ><img src="{{c.membership.image.url}}" alt="" style="width: 50px; height:50px;"></td>
+                            <td class="align-middle"><strong>{{c.membership.name}} </strong></td>
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+                            <td class="align-middle"><strong>{{cur.currency_type}} {{c.membership.price}}</strong></td>
+                            {% endif %} 
+                            {%endfor%}
+                            <!-- <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td> -->
+                            <!-- <td class="align-middle">{{c.membership.currency}}{{c.membership.price}}</td> -->
+                            <td class="align-middle"><a href="{%url 'cart-delete' c.id%}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+
+                        {%elif c.introoffer%}
+
+                        <tr>
+                            <td class="align-middle" ><img src="{{c.introoffer.image.url}}" alt="" style="width: 50px; height:50px;"></td>
+                            <td class="align-middle"><strong>{{c.introoffer.name}}</strong> </td>
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+                            <td class="align-middle"><strong>{{cur.currency_type}} {{c.introoffer.off}}</strong></td>
+                            {% endif %} 
+                            {%endfor%}
+                            <!-- <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </td> -->
+                            <!-- <td class="align-middle">{{c.introoffer.currency}}{{c.introoffer.validity}}</td> -->
+                            <td class="align-middle"><a href="{%url 'cart-delete' c.id%}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+
+                        {%elif c.package%}
+
+                        <tr>
+                            <td class="align-middle" ><img src="{{c.package.image.url}}" alt="" style="width: 50px; height:50px;"></td>
+                            <td class="align-middle"><strong>{{c.package.name}}</strong> </td>
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+                            <td class="align-middle"><strong>{{cur.currency_type}} {{c.package.price}}</strong></td>
+                            {% endif %} 
+                            {%endfor%}
+                            <!-- <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div> -->
+                            </td>
+                            <!-- <td class="align-middle">{{c.package.currency}} {{c.package.price}}</td> -->
+                            <td class="align-middle"><a href="{%url 'cart-delete' c.id%}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+                        
+
+                        
+
+                        {%endif%}
+                    </tbody>
+                    {%endfor%}
+                </table>
+                
+            </div>
+           
+            <div class="col-lg-4">
+                <form class="mb-30" action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary">Apply Coupon</button>
+                        </div>
+                    </div>
+                </form>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Subtotal</h6>
+                            {%for cur in currency%}
+        {% if cur.status == True %}
+
+                            <h6>{{cur.currency_type}} {{subtotal}}</h6>
+                            {% endif %} 
+                            {%endfor%}
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Shipping</h6>
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+                    
+                            <h6 class="font-weight-medium">{{cur.currency_type}}10</h6>
+                            {% endif %} 
+                            {%endfor%}
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5>Total</h5>
+                            {%for cur in currency%}
+                            {% if cur.status == True %}
+                            <h5>{{cur.currency_type}} {{total}}</h5>
+                            {% endif %} 
+                            {%endfor%}
+                        </div>
+                        <a href="{%url 'payment'%}" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</a>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    {%else%}
+    <div class="container">
+        <h3><center><strong>No Items added to Cart!!!!</strong></center></h3>
+    </div>
+    {%endif%}
+    {%endblock%}

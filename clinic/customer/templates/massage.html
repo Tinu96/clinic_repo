@@ -1,0 +1,112 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %}Massage{% endblock %}
+
+{%block body%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>MASSAGE</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/massage1.png'%}">
+        </div>
+        <div class="col-md-6">
+            <br>
+            <p>Find relaxation and improve your health with a therapeutic massage. Our luxurious massage services will help you leave your cares behind while offering relief from sore muscles and chronic pain.</p>  
+            <p style="font-size: 25px;">Health Benefits of Massage</p>
+            <p>Massage therapy does more than soothe the soul and relax the mind. Our massage services provide pain management and relief for people suffering from numerous ailments. According to the American Massage Therapy Association (AMTA), the primary reason people receive a massage is for health and wellness. According to one survey, 70 percent of participants received a massage for medical or health reasons such as pain management, injury rehabilitation, or overall wellness.</p>
+            <p style="font-size: 25px;">Relief for the Body</p>
+            <P>Massage therapy can relieve stress and anxiety, which improves your mental health and wellbeing. According to the AMTA, research indicates therapeutic massage also provides physical relief for people who experience:</P>
+            <ul>
+                <li>Cancer-related fatigue and pain</li>
+                <li>Low back pain</li>
+                <li>Osteoarthritis</li>
+                <li>Post-operative pain</li>
+                <li>Fibromyalgia</li>
+            </ul>
+            <p style="font-size: 25px;">Value of Massage</p>
+            <p>From finding relief for chronic pain to easing anxiety and depression, more people are realizing SPAjuvenate massage services can help their everyday lives. More doctors, medical providers, and consumers see therapeutic massage as an important aspect of healthcare.</p>
+
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/massage2.png'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+ <!-- introoffers -->
+ {%if intro%}
+ <div class="row">
+     <br>
+     <br>
+     <h3><center>INTRODUCTORY OFFERS</center></h3>
+ <hr class="border border-danger border-2 opacity-50">
+ {%for intro in intro%}
+     <div class="col-md-4">
+         <div class="card" style="width:400px;height: 550px;">
+             <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+             <div class="card-body">
+               <h5 class="card-title">{{intro.name}}</h5>
+               <p class="card-text">{{intro.desc}}</p>
+               <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+             </div>
+           </div>
+     </div>
+     {%endfor%}
+     {%endif%}
+ 
+ 
+ 
+ </div>
+ <br>
+ <!-- introoffersend -->
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+    </div>
+
+
+
+
+{%endblock%}

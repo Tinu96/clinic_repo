@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{% block title %} Careers{% endblock %}
+
+{%block body%}
+{%if careers%}
+<div>
+    <div>
+        <h3><header><center>Current career openings are as follows</center></header></h3>
+        <hr class="border border-danger border-2 opacity-50">
+    </div>
+    {%for career in careers%}
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{career.image.url}}">
+        </div>
+        <div class="col-md-8">
+            <h4><center>{{career.name}}</center></h4>
+            <p>{{career.desc}}</p>
+            <div style="text-align:center;">
+                <a href="{%url 'career-form' %}" class="btn btn-primary">Apply Now</a>
+            </div>
+        </div>
+    </div>
+<br>
+<br>    
+<br>    
+
+
+    {%endfor%}
+</div>
+{%else%}
+<div>
+    <div>
+        <h3><center>No current career openings available at the moment!!!</center></h3>
+    </div>
+</div>
+{%endif%}
+{%endblock%}

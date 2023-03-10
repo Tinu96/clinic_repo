@@ -1,0 +1,135 @@
+{%extends 'base.html'%}
+{% block title %} Bookings{% endblock %}
+
+{%block body%}
+<!--message display-->
+<!-- <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4"> -->
+        {%if messages%}
+        {%for message in messages%}
+        <div style="text-align:center;" class="alert alert-success" role="alert">{{message}}</div>
+        {%endfor%}
+        {%endif%}
+    <!-- </div> -->
+    <!-- <div class="col-4"></div> -->
+  <!-- </div> -->
+  <!--message display ends here-->
+
+ <!-- Header-->
+        <header class="bg-primary py-0">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">My Bookings</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Health and Beauty</p>
+                </div>
+            </div>
+        </header>
+        <div  style="margin-left:10px;">
+            <a href="{%url 'my-account' %}" class="btn btn-warning">Go Back</a><br> 
+            </div>
+            <br>
+        <!-- Section-->
+<div class="container">
+  <div class="container-fluid">
+
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        {%if bookings%}
+
+            {% for book in bookings %}
+             
+
+                {%comment%}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Product image-->
+                            <a href=""> <img class="card-img-top" src="{{book.services.image.url}}" alt="..." /></a>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">{{book.services}}</h5>
+                                    <!-- Product price-->
+                                    <strong>Price:{{book.currency}} {{book.cost}} </strong>
+                                    <!-- Booking ID-->
+                                    <p><strong>Booking ID: {{book.id}} </strong></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <strong>Booked Slot:</strong>
+                                    <p>{{book.timeslot}}</p>
+                                    <p><strong>Selected Beautician:</strong> {{book.beautician}}</p>
+                                    <p><strong>Status:</strong> {{book.status}}</p>
+
+                                    
+                                </div>
+                                <br>
+                                <!-- <div class="col-2"> -->
+                                    <a href="{%url 'booking-status-change' book.id%}" class="btn btn-danger" style="width:100px;margin-left:20px;">Cancel</a>
+
+                                    <a href="" class="btn btn-success"style="width:100px;margin-left:20px;">Update</a>
+
+                                <!-- </div> -->
+                                <!-- <div class="col-2"></div> -->
+                            </div>
+                        </div>
+                    </div>
+                {%endcomment%}
+
+                <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                    <img class="img-fluid w-100" style="width:100%;height:250px;" src="{{book.services.image.url}}" alt="">
+                    <div class="product-action">
+                    <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a> -->
+                    <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-info"></i></a> -->
+                    </div>
+                    </div>
+                    <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="">{{book.services}}</a>
+                  
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        {%for cur in currency%}
+                        {% if cur.status == True %}
+                        <h5>Price:{{cur.currency_type}} {{book.cost}} </h5><h6 class="text-muted ml-2"><del></del></h6>
+                        {% endif %} 
+                        {%endfor%}    
+                    </div>
+                       
+                            
+                                <div class="d-flex align-items-center justify-content-center mt-2">
+                                    <h5>Status:{{book.status}} </h5><h6 class="text-muted ml-2"><del></del></h6>
+                                    </div>
+                    <div>
+                       <a  href="{%url 'book-details' book.id%}" type="button" class="btn btn-primary">Details</a>
+                       {%if book.status == "booked"%}
+                      <a  href="{%url 'booking-status-change' book.id%}" type="button" class="btn btn-dark">Cancel</a>
+                        {%endif%}
+                        {%if book.status == "payment-pending"%}
+                      <a  href="{%url 'booking-payment' book.id%}" type="button" class="btn btn-success">Pay Now</a>
+                        {%endif%}
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+
+
+            {%endfor%}
+        {%else%}
+        <div class="row col-4"></div>
+        <div class="row col-4"><strong>Sorry! No bookings found, please book any of our services. </strong></div>
+        <div class="row col-4"></div>
+        {%endif%}
+    </div>
+</div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8"></div>
+    <div class="col-2"></div>
+  </div>
+
+</div>
+
+{%endblock%}

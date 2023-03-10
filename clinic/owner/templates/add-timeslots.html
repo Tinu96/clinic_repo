@@ -1,0 +1,32 @@
+{%extends 'base1.html'%}
+{%block body%}
+<div class="content-wrapper">
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Timeslots / Manage Timeslots/</span> Add Timeslot</h4>
+<form action="" method="post">
+    {%csrf_token%}
+    <table>
+        <!-- {{form.as_table}} -->
+        <label>START TIME</label>
+        <input type="time" name="start"><br>
+        <label>END TIME</label>
+        <input type="time" name="end"><br>
+        <label>DATE</label>
+        <input type="date" name="date"><br>
+        <label>AVAILABILITY</label>
+        <input type="number" name="availability"><br>
+        <label for="status">STATUS</label>
+        <select name="status" id="status">
+          <option value="available">available</option>
+          <option value="pending">pending</option>
+          <option value="booked">booked</option>
+        </select>
+    </table>
+    <br>
+    <button type="submit" class="btn btn-success">Add Timeslot</button>
+    <a href="{%url 'manage-timeslots'%}" class="btn btn-outline-info">Cancel & Go back</a>
+    
+</form>
+</div>
+</div>
+{%endblock%}

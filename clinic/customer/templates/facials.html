@@ -1,0 +1,108 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %} Facials{% endblock %}
+
+{%block body%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>FACIALS</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/facial1.png'%}">
+        </div>
+        <div class="col-md-6">
+            <br>
+            <p>Refresh your skin and reveal a healthy glow with a SPAjuvenate facial. Our beautifying and beneficial facials are perfect for anyone who cares about the health of their skin. Enjoy a facial after a therapeutic massage or as a stand-alone treatment. The SPAjuvenate facial treatments offer a balance between classic spa offerings and cutting-edge advancements that will leave your face feeling fresh and young. Face it — your skin needs this.</p>
+                <br>
+                <p style="font-size: 25px;">Relax and Rejuvenate with SPAjuvenate</p>
+                <p>Whether you want to relax, cleanse your skin, or reduce the appearance of fine lines and wrinkles (or if you want all of that!), you will find what you are looking for at SPAjuvenate. Step away from your busy life and choose from the enticing selection of luxurious facial treatments.</p>
+                <p style="font-size: 25px;">Repêchage Skincare Solutions</p>
+                <P>SPAjuvenate facials utilize Repêchage®, the world-renowned skincare product line. Repêchage is a seaweed-based line and is a leading professional skincare brand. Seaweed has no roots, so it feeds through osmosis and absorbs minerals and vitamins from seawater. Because of its feeding process, seaweed has a rich blend of vitamins, minerals, trace elements, amino acids, and antioxidants.
+                    Repêchage researchers seek out specific seaweeds beneficial for a range of skin types, conditions, and therapeutic needs. Seaweed is the ideal main ingredient for detoxifying, oxygenating, re-balancing, hydrating, anti-aging, and renewing benefits.</P>
+
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/facial2.jpg'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+
+<!-- introoffers -->
+{%if intro%}
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+
+
+
+
+    </div>
+
+
+
+
+{%endblock%}

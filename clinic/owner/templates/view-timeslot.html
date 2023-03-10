@@ -1,0 +1,102 @@
+{%extends 'base1.html'%}
+{%block body%}
+    <br>
+    <br>
+    <br>
+
+    <a href="{%url 'manage-timeslots'%}" class="btn btn-success" style="width:100px;">Go Back</a>
+    <br>
+    <br>
+
+{%if booking%}
+<h3> Service Booking </h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><strong>User Name</strong></th>
+      <th><strong>Service</strong></th>
+      <th><strong>Status</strong></th>
+      <th><strong>Beautician</strong></th>
+      <th><strong>Contact</strong></th>
+
+
+
+
+      
+    </tr>
+  </thead>
+  
+  
+  <tbody class="table-border-bottom-0">
+    {%for book in booking%}
+    
+    <tr>
+      
+      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{book.user}}</strong></td>
+      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{book.services.name}}</strong></td>
+      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{book.status}}</strong></td>
+      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{book.beautician}}</strong></td>
+      <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{book.user.email}}</strong></td>
+      
+
+
+
+      
+      
+    </tr>
+  
+    {%endfor%}
+  </tbody>
+  </table>
+  {%else%}
+  <h3 style="margin-top:50px;"><strong><center>Sorry!!!! No Service Bookings at this timeslot</center></strong></h3>
+  {%endif%}
+
+  <!-- {%if package%}
+  <h3> Package Booking </h3>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <th><strong>User Name</strong></th>
+        <th><strong>Package</strong></th>
+        <th><strong>Status</strong></th>
+        <th><strong>Price</strong></th>
+        <th><strong>Contact</strong></th>
+  
+  
+  
+  
+        
+      </tr>
+    </thead>
+    
+    
+    <tbody class="table-border-bottom-0">
+      {%for pack in package%}
+      
+      <tr>
+        
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{pack.user}}</strong></td>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{pack.package.name}}</strong></td>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{pack.status}}</strong></td>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{pack.package.price}}</strong></td>
+        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{pack.user.email}}</strong></td>
+        
+  
+  
+  
+        
+        
+      </tr>
+    
+      {%endfor%}
+    </tbody>
+    </table>
+    {%else%}
+    <h3 style="margin-top:50px;"><strong><center>Sorry!!!! No Package Bookings at this timeslot</center></strong></h3>
+    {%endif%} -->
+
+
+{%endblock%}

@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+{% block title %}Membership{% endblock %}
+
+{%block body%}
+<h3><strong><center>Memberships</center></strong></h3>
+<a href="{%url 'home'%}" class="btn btn-primary" style="margin-left:30px;">Go Back</a>
+<br>
+
+{%if messages%}
+{%for message in messages%}
+<div style="text-align:center;" class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+<div class="container">
+  {%if memberships%}
+<div class="row">
+{%for membership in memberships%}
+  <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+    <div class="product-item bg-light mb-4">
+    <div class="product-img position-relative overflow-hidden">
+    <img class="img-fluid w-100" style="width:100%;height:300px;" src="{{membership.image.url}}" alt="">
+    <div class="product-action">
+    <a class="btn btn-outline-dark btn-square" href="{%url 'cart-membership' membership.id %}"><i class="fa fa-shopping-cart"></i></a>
+    <!-- <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-info"></i></a> -->
+    </div>
+    </div>
+    <div class="text-center py-4">
+    <a class="h6 text-decoration-none text-truncate" href="">{{membership.name}}</a>
+    <div class="d-flex align-items-center justify-content-center mt-2">
+    <h5>{{membership.desc}}</h5><h6 class="text-muted ml-2"><del></del></h6>
+    </div>
+    <div>
+      <div class="d-flex align-items-center justify-content-center mt-2">
+        <h5>Validity : {{membership.validity}} days</h5><h6 class="text-muted ml-2"><del></del></h6>
+        </div>
+        <div class="d-flex align-items-center justify-content-center mt-2">
+          {%for cur in currency%}
+        {% if cur.status == True %}
+
+          <h5>Price : {{cur.currency_type}}{{membership.price}}</h5><h6 class="text-muted ml-2"><del></del></h6>
+          {% endif %} 
+          {%endfor%}
+        </div>
+      <a  href="{%url 'membership-payment' membership.id %}" type="button" class="btn btn-primary">Buy Now</a>
+      <a  href="{%url 'cart-membership' membership.id %}" type="button" class="btn btn-dark">Add to cart</a>
+    </div>
+    </div>
+    </div>
+    </div>
+{%endfor%}
+
+</div>
+{%else%}
+<div class="py-5">
+  <div class="row justify-content-center mb-3">
+    <center><strong>Sorry! No Packages found at the moment</strong></center>
+  </div>
+</div>
+{%endif%}
+</div>
+
+
+
+{%endblock%}

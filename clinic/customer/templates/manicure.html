@@ -1,0 +1,109 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %}Manicure{% endblock %}
+
+{%block body%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>MANICURE</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/mani1.png'%}">
+        </div>
+        <div class="col-md-6">
+            <p style="font-size: 25px;">What is a Manicure?</p>
+            <p>A manicure is a beauty treatment which uses special tools, creams, waxes and / or massage techniques to leave your nails and hands healthy and looking good.</p>
+            <p>A manicure is good for improving the texture and health of both your fingernails and the skin of your hands, as well as leaving them looking polished and perfect.</p>
+            <p>Apart from making sure your hands and nails look and feel good, a manicure often has the side-effect of relaxing you; there are pressure points on your hands that correspond to other areas of your body.</p>
+            <p>If you have an injury to your hand - a wound, or joint or muscle strain, or a rash or broken skin -- you are well advised to wait until you recover before you have a manicure, or else let our technician be aware of your limitations.</p>
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/mani2.png'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="row">
+        <p style="font-size: 25px;">What is Nail Lacquer?</p>
+        <p>OPI’s gel (SHELLAC) nail polish is officially called “Gel Color Soak-off Gel Lacquer” and in short, a gel manicure is a coat of colored gel that looks deceptively similar to nail polish. It's a thin brush-on formula, designed for high performance and a glossier finish than regular nail polish. When it comes to the question of "How long do gel nails last?" In fact, an OPI Gel Color manicure lasts for up to 3 weeks.formula, designed for high performance and a glossier finish than regular nail polish. When it comes to the question of "How long do gel nails last?" In fact, an OPI Gel Color manicure lasts for up to 3 weeks. </p>
+    </div>
+    <br>
+
+
+<!-- introoffers -->
+{%if intro%}
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+
+
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+    </div>
+
+
+
+
+{%endblock%}

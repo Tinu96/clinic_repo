@@ -1,0 +1,331 @@
+{%extends 'base.html'%}
+{% block title %}  Apply for Job{% endblock %}
+
+{%block body%}
+
+<div class="container">
+    <h4 class="mb-4">Apply For The Job</h4>
+    <form action="" method="POST">
+        {%csrf_token%}
+        <div class="row g-3">
+            <div class="col-12 col-sm-6">
+                <input type="text" name="first_name" class="form-control" placeholder="First Name">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="last_name" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="col-12 col-sm-6">
+                 {{form.date}}
+              <!-- <input type="date" name="date" class="form-control" placeholder=" Date"> -->
+            </div>  
+            <div class="col-12 col-sm-6">
+                <input type="text" name="address" class="form-control" placeholder="Address">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="city" class="form-control" placeholder="City">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="state" class="form-control" placeholder="State">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="country" class="form-control" placeholder="Country">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="zip_code" class="form-control" placeholder="Zip_code">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="phone" class="form-control" placeholder="Phone">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="email" name="email" class="form-control" placeholder="Your Email">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="position" class="form-control" placeholder="Position">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="company_awareness" class="form-control" placeholder="Awareness about Spajuvenate">
+            </div>
+            <div class="col-12 col-sm-4">
+                <p>Have you ever filed an application with us?</p>
+                <input type="radio" value="Yes" name="ever_applied">
+                <label>Yes</label>
+                <input type="radio" value="No" name="ever_applied">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="ever_applied_yes" class="form-control" placeholder="If Yes">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="date" name="applied_date" class="form-control" placeholder=" Date">
+            </div>
+            <div class="col-12 col-sm-4">
+                <p>Have you ever been employed with us?</p>
+                <input type="radio" value="Yes" name="ever_employed">
+                <label>Yes</label>
+                <input type="radio" value="No" name="ever_employed">
+                <label>No</label>
+            </div>
+        <div class="col-12 col-sm-4">
+            <input type="text" name="ever_employed_yes" class="form-control" placeholder="If yes">
+        </div>
+        <div class="col-12 col-sm-4">
+            <input type="date" name="employed_date" class="form-control" placeholder=" Date">
+        </div>
+        <h4>Education</h4>
+        <p>School</p>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="school" class="form-control" placeholder="school">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="date" name="shool_compl_year" class="form-control" placeholder="Years completed">
+            </div>
+        <p>College</p>
+
+            <div class="col-12 col-sm-4">
+                <input type="text" name="college" class="form-control" placeholder="college">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="date" name="college_compl_year" class="form-control" placeholder="Years completed">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="college_course" class="form-control" placeholder="Course">
+            </div>
+            <p>University</p>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="university" class="form-control" placeholder="University">
+            </div>
+            <p>Cosmetology School </p>
+
+            <div class="col-12 col-sm-4">
+                <input type="text" name="cosmet_school" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="date" name="cosmet_compl_year" class="form-control" placeholder="Years completed">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="cosmet_course" class="form-control" placeholder="Course">
+            </div>
+            <p>Massage therapy School</p>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="massage_school" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="date" name="massage_compl_year" class="form-control" placeholder="Years completed">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="massage_course" class="form-control" placeholder="Course">
+            </div>
+            <p>Other School</p>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="other_school" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="date" name="other_compl_year" class="form-control" placeholder="Years completed">
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" name="other_course" class="form-control" placeholder="Course">
+            </div>
+            <p>List any related business, trade or special training; or list professional or trade licenses or certificates:</p>
+
+            <div class="col-12 col-sm-12">
+                <input type="text" name="special_training" class="form-control" placeholder="">
+            </div>
+        <h4>EMPLOYMENT EXPERIENCE</h4>
+
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_company" class="form-control" placeholder="Company name">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_phone" class="form-control" placeholder="Telephone">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="exp_address" class="form-control" placeholder="Address">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>From</p>
+                <input type="date" name="exp_from" class="form-control" placeholder="From">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>To</p>
+                <input type="date" name="exp_to" class="form-control" placeholder="To">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_supervisor" class="form-control" placeholder="Name of supervisor">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_rate" class="form-control" placeholder="Hourly rate">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_job" class="form-control" placeholder="Job Title">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="exp_reason_leave" class="form-control" placeholder="Reason for Leaving:">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Are you over 18 years of age?</p>
+                <input type="radio" value="Yes" name="age">
+                <label>Yes</label>
+                <input type="radio" value="No" name="age">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>May we contact your present employer?</p>
+                <input type="radio" value="Yes"  name="contact_personal_employer">
+                <label>Yes</label>
+                <input type="radio" value="No" name="contact_personal_employer">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Are you currently employed?</p>
+                <input type="radio" value="Yes" name="currently_employed">
+                <label>Yes</label>
+                <input type="radio" value="No" name="currently_employed">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Are you prevented from lawfully becoming employed in this Country because of Visa or Immigration Status?</p>
+                <input type="radio" value="Yes" name="law_status">
+                <label>Yes</label>
+                <input type="radio" value="No" name="law_status">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Do you possess a valid Driver's License ?</p>
+                <input type="radio" value="Yes" name="drive_license">
+                <label>Yes</label>
+                <input type="radio" value="No" name="drive_license">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Driving license expiry date</p>
+                <input type="date" name="drive_license_exp" class="form-control" placeholder="Expiry  date">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Do you have your own transportation?</p>
+                <input type="radio" value="Yes" name="transportation">
+                <label>Yes</label>
+                <input type="radio" value="No" name="transportation">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="current_salary" class="form-control" placeholder="Your Current Salary">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="need_salary" class="form-control" placeholder="What do you need to earn? $ ">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="want_salary" class="form-control" placeholder="What do you want to earn? $">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="cuurent_work_hours" class="form-control" placeholder="How many days and hours do you currently work per week?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="likely_work_hours" class="form-control" placeholder="How many days and hours would you like to work per week? ">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="client_count" class="form-control" placeholder="What is your weekly Client Count?">
+            </div>
+            
+            <div class="col-12 col-sm-6">
+                <input type="text" name="strengths" class="form-control" placeholder="What do you believe are your TOP three strenghts:">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="areas_improve" name="areas_improve" class="form-control" placeholder="Areas to improve">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="contr_to_comp" class="form-control" placeholder="What would be your contribution to company?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Do you ingest any controlled substance that could affect your job performance?</p>
+                <input type="radio" value="Yes" name="contr_subs">
+                <label>Yes</label>
+                <input type="radio" value="No" name="contr_subs">
+                <label>No</label>
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Have you been convicted of a felony within the last 7 years?</p>
+                <input type="radio" value="Yes" name="convicted">
+                <label>Yes</label>
+                <input type="radio" value="No" name="convicted">
+                <label>No</label>
+            </div>
+            <p>Your possible working hours?</p>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="mon_hrs" class="form-control" placeholder="Monday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="tue_hrs" class="form-control" placeholder="Tuesday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="wed_hrs" class="form-control" placeholder="Wednesday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="thu_hrs" class="form-control" placeholder="Thursday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="fri_hrs" class="form-control" placeholder="Friday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="sat_hrs" class="form-control" placeholder="Saturday">
+            </div>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="sun_hrs" class="form-control" placeholder="Sunday">
+            </div>
+            <h4>INDUSTRIAL EXPERIENCE</h4>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_exp" class="form-control" placeholder="How many years have you been in the Beauty Industry?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_bg" class="form-control" placeholder="Please explain your background in this Industry.">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_offer" class="form-control" placeholder="What can our Spas offer you that you are not receiving now?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_expect" class="form-control" placeholder="What is most important to you in your next position? What are your expectations?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_goals" class="form-control" placeholder="Explain three goals you see for your immediate future in the position you are applying.">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_goal_plan" class="form-control" placeholder="How do you plan to reach your goals?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_where_see" class="form-control" placeholder="Where do you see yourself in five years?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_exp_years" class="form-control" placeholder="Number of years at your current Salon/Spa:">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_pr_job_exp" class="form-control" placeholder=" What do you like best about your last job?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_pr_job_leave" class="form-control" placeholder=" What where your reasons for leaving your last job? ">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_crazy" class="form-control" placeholder="What three things drove you crazy on your last job? ">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_how_spa" class="form-control" placeholder=" How will I know if SPAjuvenate is working for you? ">
+            </div>
+            <div class="col-12 col-sm-6">
+                <input type="text" name="ind_how_no_spa" class="form-control" placeholder="How will I know if SPAjuvenate is not working for your career?">
+            </div>
+            <h4>PERSONAL REFERENCES :</h4>
+            <div class="col-12 col-sm-12">
+                <input type="text" name="reference" class="form-control" placeholder="Would you like to have some references?">
+            </div>
+            <div class="col-12 col-sm-6">
+                <p>Resume</p>
+                <input type="file" name="resume" class="form-control">
+            </div>
+            <!-- <div class="col-12">
+                <textarea class="form-control" rows="5" placeholder="resume"></textarea>
+            </div> -->
+            <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+            </div>
+        </div>
+    </form>
+</div>
+{%endblock%}

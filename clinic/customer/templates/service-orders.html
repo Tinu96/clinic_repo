@@ -1,0 +1,137 @@
+{%extends 'base.html'%}
+{%block title%}
+My Orders
+{% endblock %}
+{%block body%}
+{%load static%}
+
+<div class="banner_profile">
+  <img src={%static "images/row-boats.jpg" %}>
+  <h1>My Orders</h1>
+</div>  
+
+<div class="container">
+  {%for order in orders%}
+ <div class="my_order_section">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="order-box">
+        <h2><i class="fas fa-tags"></i> Order number : <a href="#">S000{{order.id}}</h2></a> 
+      <table class="table">
+        <!-- <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Service</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Date/Time</th>
+            <th scope="col">Staus</th>
+          </tr>
+        </thead> -->
+        <tbody>
+          {%for item in order.cart.all%}
+          <tr>
+            <td><div class="v_img"><img src={{item.service.image.url}}></div></td>
+            <td><p>{{item.service.name}}</p></td>
+            <td>
+              <div class="status">
+                <div class="done_s"><span><i class="fas fa-circle"></i></span>{{order.status}}</div>
+              </div>
+              {%if order.status == "completed" %}
+              <div class="RR"><span><i class="fas fa-star"></i></span><a href=""> Rate and Review</a></div>
+              {%endif%}
+            </td>
+            <td>{{order.date_time}}</td>
+            <td><p>$ {{item.service.cost}}</p></td>
+          </tr>
+          {%endfor%}
+          {% comment %} <tr>
+            <td><div class="v_img"><img src="images/ministry.png"></div></td>
+            <td><p>Certificate of origin</p></td>
+            <td>
+              <div class="status">
+                <div class="pending_s"><span><i class="fas fa-circle"></i></span>Pending</div>
+              </div>
+            </td>
+            <td><p>23-02-2023<br>03:30pm</p></td>
+            <td><p>$ 100</p></td>
+          </tr>
+          <tr>
+            <td><div class="v_img"><img src="images/ministry.png"></div></td>
+            <td><p>Certificate of origin</p></td>
+            <td>
+              <div class="status">
+                <div class="rejected_s"><span><i class="fas fa-circle"></i></span>Rejected</div>
+              </div>
+            </td>
+            <td><p>23-02-2023<br>03:30pm</p></td>
+            <td><p>$ 100</p></td>
+          </tr> {% endcomment %}
+          <tr class="text_right">
+            <td colspan="4">Total</td>
+            <td>
+              {{order.cost}} {{currency}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+     </div>
+    </div>
+  </div>
+
+ </div>
+ {%endfor%}
+</div> 
+
+   
+    
+<style>
+.text_right{text-align: right;font-weight: bold;}
+.banner_profile{height: 300px;width: auto;overflow: hidden;}
+.banner_profile img{width: 100%;}
+.my_order_section{margin: 30px 0px;}
+.my_order_section h1{font-size: 20px;margin: 0px 0px 30px;}
+.order-box h2{font-size: 14px;margin-bottom: 20px;}
+.order-box{background: #FFF;padding: 25px;border-radius: 3px;}
+.order-box table{margin: 0px;}
+.v_img{height: 80px;width: 80px;}
+.v_img img{width:100%;height: 100%;object-fit: contain;}
+.order-box tbody{font-size: 14px;}
+.order-box tbody td{vertical-align: middle;}
+.order-box p{margin: 0px;}
+.order-box .status{text-transform: uppercase;}
+.done_s span{color: green;}
+.pending_s span{color:orange;}
+.rejected_s span{color:red;}
+.status span{margin-right: 5px;}
+.RR span{color:#0985A2;}
+.RR span{margin-right: 5px;}
+.RR a{color:#0985A2;}
+.RR a:hover{text-decoration: none;}
+.RR{font-size: 13px;}
+.banner_profile{position: relative;}
+.banner_profile h1 {
+  position: absolute;
+  top: 39%;
+  text-align: center;
+  left: 0;
+  right: 0;
+  color: #FFF;
+  z-index: 10;
+}
+.banner_profile::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 1;
+}
+</style>
+
+<script>
+ 
+</script>    
+{%endblock%}

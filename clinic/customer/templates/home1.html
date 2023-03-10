@@ -1,0 +1,14 @@
+{%if not request.user.is_anonymous%}
+                        <a href="{%url 'giftcards'%}" class="nav-item nav-link">ACCOUNT</a>
+          <ul>
+            {%if request.user.is_superuser%}
+            <li><a href="{%url 'dashboard'%}">ADMIN DASHBOARD</a></li>
+            {%endif%}
+            </li>
+            <li><a href="{%url 'my-account'%}">MY ACCOUNT</a></li>
+            <li><a href="{%url 'logout'%}">LOGOUT</a></li>
+          </ul>
+        </li>
+        {%else%}
+        <li><a href="{%url 'login'%}">LOG IN</a>
+        {%endif%}

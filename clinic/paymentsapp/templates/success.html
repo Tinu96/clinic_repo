@@ -1,0 +1,67 @@
+{%extends 'base.html'%}
+{%load static%}
+<head>
+  <link rel="stylesheet" href={%static "css/vendor.css"%}>
+</head>
+{%block body%}
+<div class="container pt-4 pb-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="payment_card">
+        <div class="card-icon">
+          <img src={%static "img/check.png"%}>
+        </div>
+        <h1>Success</h1>
+        <p>Thank you! We received your purchase request,<br>Kindly navigate to my-orders to view the order.</p>
+      </div>
+    </div>		   	
+ </div>
+ <div class="row">
+    <div class="col-lg-12">
+        <a href="#class="log_btn">My Orders</a>
+    </div>
+ </div>  
+</div> 
+<style>
+.log_btn{border-radius: 3px;cursor: pointer; margin: 25px auto 0px; padding:6px 15px;background: #0d85a1;border:none;color: #FFFFFF; text-align: center; text-transform: uppercase; font-size: 15px;font-weight: 600;display: table;}
+.log_btn:hover{color:#FFF;background: #6a6a69;}
+.payment_card{
+background: #F8FAF5;
+padding: 60px;
+border-radius: 4px;
+box-shadow: 0 2px 3px #C8D0D8;
+display:table;
+margin:30px auto 0px;
+text-align: center;
+}
+.card-icon{
+border-radius:50px;
+height: 200px;
+width: 200px;
+margin: 0 auto;
+}
+.card-icon img{width: 100%;}
+.payment_card h1{
+color: #78BF41;
+font-weight: 900;
+font-size: 40px;
+margin-bottom: 10px;
+text-transform: uppercase;
+}
+.payment_card p {
+color: #404F5E;
+font-size: 20px;
+margin: 0;
+}
+.failed h1{color: #FF496C;}
+.failed .card-icon img {
+width: 88%;
+}
+
+@media (max-width: 767px) {
+.payment_card{padding: 30px;}
+.card-icon{width: 150px;height: 150px;}
+}
+</style>
+{%endblock%}
+

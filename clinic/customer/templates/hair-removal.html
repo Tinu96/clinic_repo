@@ -1,0 +1,106 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %} Hair removal waxing{% endblock %}
+
+{%block body%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>HAIR REMOVAL WAXING</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/hair1.jpeg'%}">
+        </div>
+        <div class="col-md-6">
+            <br>
+            <p>Remove unwanted hair in a calm and soothing environment. Get smooth skin without irritation and redness with the SPAjuvenate Artisan Waxing Experience. SPAjuvenate offers both body waxing and facial waxing. Our licensed estheticians make hair removal a cinch. They use Repêchage® Sea-Smooth Artisan Seaweed Wax to deliver a smooth, calm experience. Waxing really can be relaxing!</p>
+            <p style="font-size: 25px;">Experience Our Waxing Services</p>
+            <p>Whether it’s your first time or you receive hair removal treatments on a regular basis, you can count on the licensed estheticians at SPAjuvenate to make the experience as pleasant as possible. Beauty does not equal pain at SPAjuvenate! Our waxing services are designed to be virtually painless while still delivering the results you desire. You will leave your hair removal session with smooth skin, free of bumps, redness, and irritation.</p>
+            <p>What’s in the Wax?</p>
+            <p>The Repêchage Sea-Smooth Artisan Seaweed Wax is infused with select sea plants to soothe, heal, and calm the skin. The seaweed delivers vitamins, minerals, and trace elements to the skin for unparalleled smoothness. The wax is rich in zinc oxide, titanium dioxide, and vitamin E, which work together to reduce irritation and redness.</p>
+            <p>Our rich, creamy formula allows for your licensed esthetician to provide precise application and adhesion. Both the hair shaft and root are successfully removed for longer-lasting results. Throw away your razors and say hello to smooth skin.</p>
+                
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/hair2.png'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+ <!-- introoffers -->
+{%if intro%}
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+
+    </div>
+
+
+
+
+{%endblock%}

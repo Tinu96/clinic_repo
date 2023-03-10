@@ -1,0 +1,71 @@
+{%extends 'base1.html'%}
+{%block body%}
+<div class="card mb-4">
+  <br>
+  <br>
+  <a href="{%url 'manage-giftcards'%}" class="btn btn-success" style="width:100px;">Go Back</a>
+    <h5 class="card-header">Gift Card Details</h5>
+     <!-- Horizontal -->
+     <h5 class="pb-1 mb-4">{{giftcard.name}}</h5>
+     <div class="row mb-5">
+       <div class="col-md">
+         <div class="card mb-3">
+           <div class="row g-0">
+             <div class="col-md-4">
+               <img class="card-img card-img-left" src="{{giftcard.img.url}}" alt="Card image" />
+             </div>
+             <div class="col-md-8">
+               <div class="card-body">
+                 <h5 class="card-title">Description</h5>
+                 <p class="card-text">{{giftcard.desc}}</p>
+                 <h5 class="card-title">Price</h5>
+                 <p class="card-text">$ {{giftcard.price}}</p>
+                 <h5 class="card-title">Status</h5>                
+                 {%if giftcard.status == True%}
+                 <span class="badge bg-label-success me-1">Active</span>
+                 {%else%}
+                 <span class="badge bg-label-danger me-1">In-Active</span>
+                 {%endif%}
+                 <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                 
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+     <!--/ Horizontal -->
+    
+    </div>
+
+
+    {%if gift%}
+    <h3>Purchase History</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th><strong>User Name</strong></th>
+          <th><strong>Date</strong></th>
+
+          
+        </tr>
+      </thead>
+      
+      
+      <tbody class="table-border-bottom-0">
+        {%for gift in gift%}
+        <tr>
+          
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{gift.user}}</strong></td>
+          <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{gift.date}}</strong></td>
+
+          
+          
+        </tr>
+        {%endfor%}
+      </tbody>
+      </table>
+      {%endif%}
+
+          {%endblock%}

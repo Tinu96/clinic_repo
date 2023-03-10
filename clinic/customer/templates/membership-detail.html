@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{% block title %}Membership{% endblock %}
+
+{%block body%} 
+<a href="{%url 'home'%}" class="btn btn-primary" style="margin-left:30px;">Go Back</a>
+
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+    
+    <div class="card mb-4">
+        <!-- <h5 class="card-header">Membership Details</h5> -->
+         <!-- Horizontal -->
+         <h5 class="pb-1 mb-4">{{membership.name}}</h5>
+         <div class="row mb-5">
+           <div class="col-md">
+             <div class="card mb-3">
+               <div class="row g-0">
+                 <div class="col-md-4">
+                   <img class="card-img card-img-left" src="{{membership.image.url}}" alt="Card image" />
+                 </div>
+                 <div class="col-md-8">
+                   <div class="card-body">
+                    <h5 class="card-title">validity</h5>
+                     <p class="card-text">{{membership.validity}}</p>
+                     <h5 class="card-title">Description</h5>
+                     <p class="card-text">{{membership.desc}}</p>
+                     <h5 class="card-title">Price</h5>
+                     <p class="card-text">{{membership.currency}} {{membership.price}}</p>
+                     <a href="{%url 'my-memberships'%}" class="btn btn-warning">My Memberships</a>
+                     <!-- <h5 class="card-title">Status</h5>                 -->
+                     <!-- {%if giftcard.status == True%} -->
+                     <!-- <span class="badge bg-label-success me-1">Active</span> -->
+                     <!-- {%else%} -->
+                     <!-- <span class="badge bg-label-danger me-1">In-Active</span> -->
+                     <!-- {%endif%} -->
+                     <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                     
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+           
+         <!--/ Horizontal -->
+        
+        </div>
+{%endblock%}
+   

@@ -1,0 +1,236 @@
+#header-wrapper{margin-bottom: 0px !important;}
+.dt-logo-container a img{width: 54%;}
+.header{min-height: 30px; background: #000;}
+.copyright{min-height: 50px; background: #000;}
+.logo-brand{width: 100px;padding: 10px 0px;}
+
+.card-header::after {
+  flex-shrink: 0;
+  width: var(--mdb-accordion-btn-icon-width);
+  height: var(--mdb-accordion-btn-icon-width);
+  margin-left: auto;
+  content: "";
+  background-image: var(--mdb-accordion-btn-icon);
+  background-repeat: no-repeat;
+  background-size: var(--mdb-accordion-btn-icon-width);
+  transition: var(--mdb-accordion-btn-icon-transition);
+}
+
+.categories_list nav > .nav.nav-tabs{
+
+  border: none;
+    color:#fff;
+    background:#ffffff;
+    border-radius:0;
+
+}
+.categories_list nav > div a.nav-item.nav-link,
+.nav > div a.nav-item.nav-link.active
+{
+  border: none;
+    padding: 14px 20px;
+    color:#000;
+    background:#f9f9f9;
+    border-radius:0;
+    margin-bottom: 5px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.categories_list nav > div a.nav-item.nav-link.active
+{
+    color:#000;
+    background:#FFD333;
+}
+
+.tab-content{
+  background: #fdfdfd;
+    line-height: 25px;
+    border:none;
+    padding:0px;
+    text-transform: uppercase;
+}
+
+.categories_list nav > div a.nav-item.nav-link:hover,
+.categories_list nav > div a.nav-item.nav-link:focus
+{
+  border: none;
+    background: #FFD333;
+    color:#000;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+.categories_list nav > div a.nav-item.nav-link{width: 100%;}
+
+.card-header .title {
+  font-size: 17px;
+  color: #000;
+}
+.card-header .accicon {
+float: right;
+font-size: 20px;  
+width: 1.2em;
+}
+.card-header{
+cursor: pointer;
+border-bottom: none;
+}
+.card{
+border: 1px solid #ffffff;
+}
+/* .card-body{
+border-bottom: 1px dashed #000;
+} */
+.card-header:not(.collapsed) .rotate-icon {
+transform: rotate(180deg);
+}
+.booking_categories .card-body{padding: 15px;}
+.booking_categories .card-header{background-color:#ffffff;border-bottom: 1px dashed #000;}
+.package-box h6{float: left;line-height: 26px;}
+.select-bx{float: right;}
+.add_ons{border: 1px solid #d0d0d0; padding: 5px;max-height: 150px;overflow: hidden;overflow-y: scroll;min-height: 90px;}
+.add_ons p{float: left;margin: 0px;}
+.add-sug{float: right;display: flex;}
+.add_ons .select-bx{margin-left: 10px;margin-top: -3px;}
+.add_ons h5{text-transform: uppercase; font-weight: bold;font-size: 14px;}
+.sub-box{
+  border: 1px solid #d0d0d0;
+  overflow: hidden;
+  padding: 5px;
+}
+.provider-section{border: 1px solid #d0d0d0;padding: 5px;margin-top: 10px;overflow: hidden;}
+.provider-section div{float: left;margin-right: 10px;}
+.provider-section h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+.provider-list{
+  border: 1px solid #d0d0d0;
+  padding: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.pl-box{width: 50%;float: left;}
+.date_time h5 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
+.date_time{
+  border: 1px solid #d0d0d0;
+  padding: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.dtp{background: #fff; border: 1px solid #d0d0d0; height: 35px;padding: 5px;width: 100%;}
+.book_btn{background: #000;border: 1px solid #000;color: #FFF;padding: 6px 20px; text-transform: uppercase;margin: 15px auto 20px;display: table;cursor: pointer;}
+.book_btn:hover{color: #FFD333;}
+.add_service{background: #000;border: 1px solid #000;font-weight: 600;color: #FFF;padding: 4px 20px; text-transform: uppercase;margin:20px auto 15px;display: table;cursor: pointer;}
+.add_service:hover{color: #FFD333;}
+
+/* booking forw home */
+
+.booking-forwhome{margin: 0px;}
+.booking-forwhome h5{
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 25px;
+}
+.booking-forwhome h6{
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 15px;
+}
+.user-icon{border: 1px solid gray;width: 30px; height: 30px;}
+.booking-forwhome .nav-pills .nav-link{border: 1px solid #CCC;border-radius: 0px;color: black;font-size: 14px;padding: 4px 13px;text-align: center;}
+.booking-forwhome .nav-pills .nav-link.active{background-color: #dfdfdf;}
+.relation_tab ul li{width: 16.666%;}
+.form-groupfield {
+  margin-bottom: 10px;
+}
+.form-groupfield label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  line-height: 18px;
+}
+.formcontrol_F {
+  padding: 5px 7px;
+  height: 35px;
+  box-shadow: none !important;
+  border: 1px solid #CED4DA;
+  border-radius: 0.25rem;
+  width: 100%;
+  color: #000;
+  font-size: 14px;
+  background: #FFF;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+.btn_save{background: #008000;
+  border: 1px solid #008000;
+  color: #FFF;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  margin: 10px 0px 10px;
+  display: table;
+  width: 100%;
+  cursor: pointer;}
+.btn_save:hover{background: #FFF; color:#008000;}
+.btn_clear{background: #000;
+  border: 1px solid #000;
+  color: #FFF;
+  padding: 6px 20px;
+  text-transform: uppercase;
+  margin: 10px 0px 10px;
+  display: table;
+  width: 100%;
+  cursor: pointer;}
+.btn_clear:hover{background: #FFF; color:#000;}
+
+
+/* color fixing */
+
+.bg-secondary {
+  background-color: #F5F5F5 !important;
+}
+.bg-secondary .btn-light{background-color: #fff;}
+.bg-primary {
+  background-color: #BD9F86 !important;
+}
+a.bg-primary:hover {
+  background-color: #BD9F86 !important;
+}
+a.bg-primary:focus{
+  background-color: #BD9F86 !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+}
+.text-primary {
+  color: #BD9F86 !important;
+}
+.bg-dark {
+  background-color: #3D464D !important;
+}
+.text-secondary {
+  color: #F5F5F5 !important;
+}
+.btn-primary {
+  background-color: #BD9F86;
+  border-color: #BD9F86;
+}
+.btn-primary:hover {
+  background-color: #947051;
+  border-color: #947051;
+}
+.btn.btn-primary {
+  color: #3D464D !important;
+}

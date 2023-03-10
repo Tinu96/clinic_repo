@@ -1,0 +1,144 @@
+{%extends 'base.html'%}
+{% block title %} Cart{% endblock %}
+
+{%block body%}
+
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="{%url 'home'%}">Home</a>
+                <a class="breadcrumb-item text-dark" href="{%url 'shop'%}">Shop</a>
+                <span class="breadcrumb-item active">Service Cart</span>
+            </nav>
+    <a href="{%url 'shop'%}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</div>
+<br>
+{%if cart%}
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Beautician</th>
+                            <th>Add-On</th>
+                            <th>Price</th>
+                            <th>Remove</th>
+                        </tr>
+                    </thead>
+                    {%for c in cart%}
+                    <tbody class="align-middle">
+                        <tr>
+                            <td class="align-middle" ><img src="{{c.service.image.url}}" alt="" style="width: 50px; height:50px;"><p>{{c.service.name}}</p></td>
+                            <td class="align-middle"><strong>{{c.date}}</strong> </td>
+                            <td class="align-middle"><strong>{{c.time}}</strong></td>
+                            <td class="align-middle"><strong>{{c.beautician}}</strong></td>
+                            <td class="align-middle"><strong>{%if c.addons%}{{c.addons}}<p>{{currency}} {{c.addons.cost}}</p>{%else%}No addons selected{%endif%} </strong></td>
+                            <td class="align-middle"><strong>{{currency}} {{c.service.cost}}</strong></td>
+                            
+
+                            <!-- <td class="align-middle">
+                                <div class="input-group quantity mx-auto" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-minus" >
+                                        <i class="fa fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="1">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-sm btn-primary btn-plus">
+                                            <i class="fa fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div> -->
+                            </td>
+                            <!-- <td class="align-middle">{{c.package.currency}} {{c.package.price}}</td> -->
+                            <td class="align-middle"><a href="{%url 'remove-service-cart' c.id%}" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a></td>
+                        </tr>
+                    </tbody>
+                    {%endfor%}
+                </table>
+                
+            </div>
+           
+            <div class="col-lg-4">
+                <form class="mb-30" action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-0 p-4" placeholder="Coupon Code">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary">Apply Coupon</button>
+                        </div>
+                    </div>
+                </form>
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Subtotal</h6>
+                            <h6>{{currency}} {{subtotal}}</h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Service Charge</h6>
+                            <h6 class="font-weight-medium">{{currency}}10</h6>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5>Total</h5>
+                            <h5>{{currency}} {{total}}</h5>
+                        </div>
+                        <input type="hidden" value="{{ csrf_token }}" id="csrf-val" >
+                        <button type="button" id="checkout-button" class="btn btn-block btn-primary font-weight-bold my-3 py-3">Proceed To Checkout</button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript">
+        const csrftoken = document.getElementById('csrf-val').value
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe("{{ STRIPE_PUBLIC_KEY }}");
+        var checkoutButton = document.getElementById("checkout-button");
+        checkoutButton.addEventListener("click", function () {
+          fetch("{% url 'create-checkout-session' %}", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': csrftoken
+            }
+          })
+            .then(function (response) {
+              return response.json();
+            })
+            .then(function (session) {
+              return stripe.redirectToCheckout({ sessionId: session.id });
+              
+            })
+            .then(function (result) {
+                console.log("test_success")
+              // If redirectToCheckout fails due to a browser or network
+              // error, you should display the localized error message to your
+              // customer using error.message.
+              if (result.error) {
+                alert(result.error.message);
+              }
+            })
+            .catch(function (error) {
+              console.error("Error:", error);
+            });
+        });
+    </script>
+    {%else%}
+    <div class="container">
+        <h3><center><strong>No Items added to Cart!!!!</strong></center></h3>
+    </div>
+    {%endif%}
+    {%endblock%}

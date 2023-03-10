@@ -1,0 +1,101 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %} Eye lash extensions{% endblock %}
+
+{%block body%}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>EYE LASH EXTENSION</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/eye1.png'%}">
+        </div>
+        <div class="col-md-6">
+            <br>
+            <p>Experience premium volume lashes! 0.05 width for an ultra light and thin lash that makes volume lashes pop! Fuller, more noticeable lashes that every client will keep coming back for!  Revelation premium volume at it's best!  These lashes are even thinner and lighter than traditional volume lashes.  They will allow more lashes to be grouped together for that fuller volume look.  </p>    
+            <p>They are also great for those whose natural lashes cannot bear the weight of thicker lashes.  
+                Ultra soft to the touch, these 0.05 width Volume lashes by Revelation are perfect!</p>
+                <br>
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/eye2.jpg'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+
+ <!-- introoffers -->
+{%if intro%}
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+    </div>
+
+
+
+
+{%endblock%}

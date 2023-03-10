@@ -1,0 +1,210 @@
+{%extends 'base.html'%}
+{% block title %} Service details{% endblock %}
+
+{%block body%}
+{%if messages%}
+{%for message in messages%}
+<div style="text-align:center;" class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+<a href="{%url 'bookings'%}" class="btn btn-primary" style="margin-left:30px;">Go Back</a>
+
+<head>
+    {% comment %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> {% endcomment %}
+</head>
+<h3><center>BOOKING DETAILS</center></h3>
+<!-- Shop Detail Start -->
+<div class="container-fluid pb-5">
+    <br>
+
+    <div class="row px-xl-5">
+        <div class="col-lg-5 mb-30">
+            <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner bg-light">
+                    <div class="carousel-item active" style="width:100%;height:400px;">
+                        <img class="w-100 h-100" src="{{service.services.image.url}}" alt="Image">
+                    </div>
+                    <div class="carousel-item" style="width:100%;height:400px;">
+                        <img class="w-100 h-100" src="{{service.services.image.url}}" alt="Image">
+                    </div>
+                    <div class="carousel-item" style="width:100%;height:400px;">
+                        <img class="w-100 h-100" src="{{service.services.image.url}}" alt="Image">
+                    </div>
+                    <div class="carousel-item" style="width:100%;height:400px;">
+                        <img class="w-100 h-100" src="{{service.services.image.url}}" alt="Image">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
+                    <i class="fa fa-2x fa-angle-left text-dark"></i>
+                </a>
+                <a class="carousel-control-next" href="#product-carousel" data-slide="next">
+                    <i class="fa fa-2x fa-angle-right text-dark"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-lg-7 h-auto mb-30">
+            <div class="h-100 bg-light p-30">
+                <h3>{{service.services.name}}</h3>
+                <div class="d-flex mb-3">
+                    <div class="text-primary mr-2">
+                        {%if service.services.rating %}
+                        {%if service.services.rating >= 1 and service.services.rating < 2 %} <small class="fa fa-star text-primary mr-1">
+                            </small>
+                            <small class="far fa-star text-primary mr-1"></small>
+                            <small class="far fa-star text-primary mr-1"></small>
+                            <small class="far fa-star text-primary mr-1"></small>
+                            <small class="far fa-star text-primary mr-1"></small>
+                            {%elif service.services.rating >= 2 and service.services.rating < 3 %} <small
+                                class="fa fa-star text-primary mr-1"></small>
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                <small class="far fa-star text-primary mr-1"></small>
+                                <small class="far fa-star text-primary mr-1"></small>
+                                <small class="far fa-star text-primary mr-1"></small>
+                                {%elif service.services.rating >= 3 and service.services.rating < 4 %} <small
+                                    class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="fa fa-star text-primary mr-1"></small>
+                                    <small class="far fa-star text-primary mr-1"></small>
+                                    <small class="far fa-star text-primary mr-1"></small>
+                                    {%elif service.services.rating >= 4 and service.services.rating < 5 %} <small
+                                        class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                        {%elif service.services.rating == 5 %}
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        <small class="fa fa-star text-primary mr-1"></small>
+                                        {%else%}
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                        <small class="far fa-star text-primary mr-1"></small>
+                                       
+                                        <small>(0)</small>
+                                        {%endif%}
+                                        {%endif%}
+                    </div>
+                  
+            </div>
+            <div>
+                <h4>Booking ID: {{service.id}}</h4>
+              </div>
+              <div>
+                <h4>Booked date: {{service.booking_date}}</h4>
+              </div>
+              <div>
+                <h4>Booked Slot: {{service.timeslot}}</h4>
+              </div>
+              <div>
+                <h4>Beautician: {{service.beautician}}</h4>
+              </div>
+              {%for cur in currency%}
+        {% if cur.status == True %}
+
+              <div>
+                <h4>Price:{{cur.currency_type}} {{service.services.cost}}</h4>
+              </div>
+              {% endif %} 
+              {%endfor%}
+              <div>
+                <h4>Status: {{service.status}}</h4>
+              </div>
+              {%if service.status == "completed"%}
+              <a href="{%url 'book-review' service.services.id%}" class="btn btn-warning">Leave a Review</a>
+              {%endif%}
+              {%if service.status == "payment-pending" %}
+              <a class="btn btn-success" href="{%url 'booking-payment' service.id%}">Complete Payment</a>
+              {%endif%}
+
+             
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+</div>
+
+
+<!-- Shop Detail End -->
+{% comment %}
+<script>
+    $(document).ready(function () {
+        setInterval(function () {
+            $.ajax({
+                type: 'GET',
+                url: "{%url 'test' %}",
+                success: function (response) {
+
+                    $("#timeslot").empty();
+                    for (var key in response.timeslots) {
+
+                        var temp = ``;
+                        temp += `
+                    ${response.timeslots[key].time}
+            
+                    `
+                        $("#timeslot").append(temp);
+                    }
+                },
+                error: function (response) {
+                    alert("An error occured")
+                }
+            });
+        }, 1000);
+    });
+</script> {% endcomment %}
+
+{% comment %}
+<script>
+    fetch("http://127.0.0.1:8000/test").then(res => res.json()).then(data => populateValue(data))
+
+
+    function populateValue(products) {
+
+        console.log(products);
+        let htmldata = ``;
+        products.forEach(p => {
+            htmldata += `
+            <div class="col-3">
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <h5 class="card-title">${p}</h5>
+            <p class="card-text">${p}</p>
+            </div>
+            </div>
+            </div>`
+
+        });
+        document.querySelector("#timeslot").innerHTML = htmldata
+    }
+
+    function fetchProduct(id) {
+        console.log(id);
+        fetch(`https://fakestoreapi.com/products/${id}`).then(res => res.json()).then(data => populateValue([data]))
+    }
+
+    function fetchByCategory(e) {
+        fetch(`https://fakestoreapi.com/products/category/${e}`).then(res => res.json()).then(data => console.log(data))
+    }
+</script> {% endcomment %}
+{%endblock%}

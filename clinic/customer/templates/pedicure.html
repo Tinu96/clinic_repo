@@ -1,0 +1,137 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %}Pedicure{% endblock %}
+
+{%block body%}
+
+<div class="container-fluid">
+    <div class="row">
+        <h3><center>PEDICURE</center></h3>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/pedi1.jpg'%}">
+        </div>
+        <div class="col-md-6">
+        <br>
+        <br>
+
+            <!-- <p style="font-size: 25px;">What is a Manicure?</p> -->
+            <p>So, you’ve got the perfect manicure in front of you, your hands look great, you’re loving life, but what about your feet? Who even see’s our feet apart from in the summer, where a slap of polish will sort them out? Wrong! There are so many benefits to a pedicure that people sometimes overlook, although they make our toes look great, there are huge health and skin benefits that run alongside too. But if you didn’t know that, your at the right place Relax, Rejuvenate with SPAjuvenate.</p>
+        <br>
+        <br>
+            
+            <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+            
+        </div>
+        <div class="col-md-3">
+            <img style="width:300px;height:300px;" src="{%static 'images/pedi2.jpg'%}">
+    
+        </div>
+    </div>
+    <br>
+    <br>
+    
+    <div class="row">
+        <p style="font-size: 25px;">What is a pedicure?</p>
+        <ul style="margin-left: 20px;">
+        <p>A pedicure is a beauty treatment of the feet and toenails. Although there are several types of pedicures that range in method, SPAjuvenate offers one of the most affordable which is the regular pedicure. Being a customer, it’s a very luxurious treatment, you'll be offered a drink while sit in one of our comfortable SPA chair and receive the following:</p>
+        <li>A nice warm foot soak to soften and help relax the skin and toenails.</li><br>
+        <li>Trimming and filing of the toenails. (This is a careful procedure of course, trust our technician!)</li><br>
+        <li>A nail cuticle treatment (cuticles pushed back, and a nourishing cuticle oil is applied).</li><br>
+        <li>A callus remover will then be applied, that will remove any flaky dry foot skin, and any calluses. This is usually done with a pumice stone/foot file.</li><br>
+        <li>Your feet will then be wrapped in a nice warm towel</li><br>
+        <li>Moisturizer applied and a short foot and lower leg massage.</li><br>
+        <li>Finally, an application of a base-coat nail polish, toenail polish and topcoat</li><br>
+        <li>Then sprayed with a fast drying spray.</li>
+        </ul>
+    </div>
+    <br>
+    <div class="row">
+        <p style="font-size: 25px;">How often should you get a pedicure</p>
+        <p>How often do you really need to have your nails done to avoid dry or chipped nails or damaged cuticles? The answer generally is depends on the condition of your nails, how fast they grow and what you tend to do in the day. You can get a mani or pedi done anywhere from one to four times a month. But once every month for a pedicure is enough to keep everything tip top and looking great.</p>
+    </div>
+
+    <div class="row">
+        <p style="font-size: 25px;">What is Nail Lacquer?</p>
+        <p>Lacquer is a solvent-based coating containing pigment. It's applied to nails with a brush and does not require curing in a lamp to dry.</p>
+
+    </div>
+
+    <div class="row">
+        <p style="font-size: 25px;">What is OPI Gel?</p>
+        <p>OPI’s gel nail polish is officially called “Gel Color Soak-off Gel Lacquer” a gel pedicure is a coat of colored gel that looks deceptively similar to nail polish. It's a thin brush-on formula, designed for high performance and a glossier finish than regular nail polish. When it comes to the question of "How long do gel pedicure last?" In fact, an OPI Gel Color pedicure lasts for up to 4 weeks.</p>
+        <p>The gel we’re specifically talking about here - which is the gel polish we use- is known as UV / LED gel polish.</p>
+
+    </div>
+
+ <!-- introoffers -->
+{%if intro%}
+<br>
+<br>
+
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+    </div>
+
+
+
+{%endblock%}

@@ -1,0 +1,43 @@
+{%extends 'base1.html'%}
+{%block body%}
+<div class="card mb-4">
+  <br>
+  <br>
+  <a href="{%url 'manage-introoffers'%}" class="btn btn-success" style="width:100px;">Go Back</a>
+    <h5 class="card-header">Intro Offer Details</h5>
+     <!-- Horizontal -->
+     <h5 class="pb-1 mb-4">{{introoffer.name}}</h5>
+     <div class="row mb-5">
+       <div class="col-md">
+         <div class="card mb-3">
+           <div class="row g-0">
+             <div class="col-md-4">
+               <img class="card-img card-img-left" src="{{introoffer.image.url}}" alt="Card image" />
+             </div>
+             <div class="col-md-8">
+               <div class="card-body">
+                 <h5 class="card-title">Description</h5>
+                 <p class="card-text">{{introoffer.desc}}</p>
+                 <h5 class="card-title">Validity</h5>
+                 <p class="card-text">{{introoffer.validity}}</p>
+                 <h5 class="card-title">Status</h5>                
+                 {%if introoffer.status == "available"%}
+                 <span class="badge bg-label-success me-1">Available</span>
+                 {%elif introoffer.status == "unavailable"%}
+                 <span class="badge bg-label-danger me-1">Unavailable</span>
+                 {%else%}
+                 <span class="badge bg-label-success me-1">Booked</span>
+                 {%endif%}
+                 <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                 
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+       
+     <!--/ Horizontal -->
+    
+    </div>
+
+          {%endblock%}

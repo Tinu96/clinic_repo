@@ -1,0 +1,117 @@
+{%extends 'base.html'%}
+{%load static%}
+{% block title %} Mani/Pedi{% endblock %}
+
+{%block body%}
+<div class="container-fluid">
+<div class="row">
+    <h3><center>MANI/PEDI</center></h3>
+    <div class="col-md-3">
+        <img src="{%static 'images/mani-pedi-left.jpg'%}">
+    </div>
+    <div class="col-md-6">
+        <br>
+        <p style="font-size: 25px;">What is a Manicure and Pedicure?</p>
+        <p>A manicure refers to the curation and care of our client’s hands and a pedicure refers to the curation and care of our client’s feet. This includes skincare, nail care, and artificial nail enhancements that can be customized to a variety of preferences. Let’s take a deeper look at some of the main reasons for getting a manicure or a pedicure.</p>
+    <a href="{%url 'shop'%}" style="align-items:center; width:100px;margin-left: 250px;" class="btn btn-primary">BOOK NOW</a>
+        
+    </div>
+    <div class="col-md-3">
+        <img style="width:250px;height:200px" src="{%static 'images/services_category_img_46.png'%}">
+
+    </div>
+</div>
+<br>
+<br>
+
+<div class="row">
+    <p style="font-size: 25px;">What are the Benefits of Getting a Manicure or Pedicure?</p>
+    <p>There is more to manicures and pedicures than the physical condition and the visual look of your nails. Sometimes going to the spa or salon is about taking some time out to focus on yourself. Let’s take a closer look at the internal benefits of manicures and pedicures.</p>
+    <p>Benefit #1: Self Care</p>
+    <p>Getting your nails done is all about self-care. Your mental health may not be the first thing you think of when you make your nail appointment, but there is something to be said for taking a timeout from the everyday grind to reset yourself. Manicures and pedicures are a great way to give yourself some time away from stress and pressure. Having a regularly scheduled break from your demanding life is healthy. Prioritizing yourself in an indulgent way can do wonders for your personal wellness. A manicure and pedicure can help keep you relaxed, give you a boost in confidence, and allow you to express your style and attitude in greater detail.</p>
+    <p>Benefit #2: Relaxation</p>
+    <p>A fragrant soak and a relaxing hand or foot massage can help you feel more relaxed. Indulging your extremities with this extra attention is particularly helpful if you are on your feet for long periods of time, or if your career requires a large amount of typing, handwriting, or other handwork. Pampering your hands and feet, with a manicure and pedicure, can relax your internal tension and help you relieve stress from the outside in.</p>
+    <p>Benefit #3: Confidence</p>
+    <p>Looking good is part of feeling good. When you are comfortable and happy with your overall look it can help you feel more confident as a whole. Your nails are an important part of your style and can make a difference in boosting your confidence. Make sure you know what you want and figure out your own personal nail style.</p>
+    <p>Benefit #4: Expression</p>
+    <p>Your nails make a statement to the people around you. What they say to the world depends on how you choose to have them done. Do they say that you are clean and classic? Do they convey an attitude of rebellion and edginess? Are you Avant grade and out of the ordinary? Do your nails purposefully contradict your personality? It’s all about what you want your nails to say.</p>
+</div>
+<br>
+<div class="row">
+    <p style="font-size: 25px;">What is Nail Lacquer?</p>
+    <p>Lacquer is a solvent-based coating containing pigment. It's applied to nails with a brush and does not require curing in a lamp to dry.</p>
+</div>
+<div class="row">
+    <p style="font-size: 25px;">What is OPI Gel?</p>
+    <p>OPI’s gel nail polish is officially called “Gel Color Soak-off Gel Lacquer” a gel pedicure is a coat of colored gel that looks deceptively similar to nail polish. It's a thin brush-on formula, designed for high performance and a glossier finish than regular nail polish. When it comes to the question of "How long do gel pedicure last?" In fact, an OPI Gel Color pedicure lasts for up to 4 weeks.</p>
+    <p>The gel we’re specifically talking about here - which is the gel polish we use- is known as UV / LED gel polish.</p>
+</div>
+<br>
+<br>
+<br>
+<!-- introoffers -->
+{%if intro%}
+<div class="row">
+    <br>
+    <br>
+    <h3><center>INTRODUCTORY OFFERS</center></h3>
+<hr class="border border-danger border-2 opacity-50">
+{%for intro in intro%}
+    <div class="col-md-4">
+        <div class="card" style="width:400px;height: 550px;">
+            <img src="{{intro.image.url}}" style="width:100%;height:300px;" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{intro.name}}</h5>
+              <p class="card-text">{{intro.desc}}</p>
+              <a href="{%url 'introoffers'%}" class="btn btn-primary">Check Now</a>
+            </div>
+          </div>
+    </div>
+    {%endfor%}
+    {%endif%}
+
+
+
+</div>
+<br>
+<!-- introoffersend -->
+<!-- services -->
+{%if services%}
+{%for service in services%}
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <br>
+
+        <img  style="width:80%;height:450px;" src="{{service.image.url}}">
+        <br>
+        <br>
+
+    </div>
+    <div class="col-md-6">
+        <br>
+        <br>
+        <h3><center>{{service.name}}</center></h3>
+        <br>
+        <br>
+        <p>{{service.description}}</p>
+        <p>{{service.detailed_description}}</p>
+
+        <br>
+        <br>
+        <br>
+
+        <p></p>
+            <a href="{%url 'book' service.id%}" class="btn btn-primary">Book Now</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+    </div>
+</div>
+<hr class="border border-dark border-2 opacity-50">
+{%endfor%}
+{%endif%}
+<!-- SERVICE ENDS -->
+
+
+</div>
+{%endblock%}

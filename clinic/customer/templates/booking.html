@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% block title %} {% trans 'Booking' %} {% endblock %}
+{% block body %}
+
+<br>
+
+<div class="container">
+    <div class="row d-md-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="wrap-appointment d-md-flex">
+                <div class="col-md-8 bg-primary p-5 heading-section heading-section-white">
+                    <span class="subheading">Booking an Appointment</span>
+                    <h2 class="mb-4">Free Consultation</h2>
+                    <form action="" class="appointment" method="post">
+                      {%csrf_token%}
+                      
+                        <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                          <input type="text" class="form-control" name="na" placeholder="Your Name">
+                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                          <input type="tel" class="form-control"name="ph" placeholder="Phone number">
+                        </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <div class="form-field">
+                                  <div class="select-wrap">
+                                   
+                          <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                          
+                             <select name="servic" id="id_service" class="form-control">
+                              {%for service in services%}
+                              <option value="{{service.name}}">{{service.name}}</option>
+                          {%endfor%}
+                            <!--<option value="">Spinal Manupulation</option>
+                            <option value="">Electrotherapy</option>
+                            <option value="">Manual Lymphatic</option>
+                            <option value="">Medical Acupuncture</option>
+                            <option value="">Therapeutic Exercise</option>
+                            <option value="">Joint Mobilization</option>-->
+                          </select>
+                        </div>
+                          </div>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <div class="form-field">
+                                  <div class="select-wrap">
+                          <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                          
+                          <select name="doc" id="" class="form-control">
+                            {%for beautician in beauticians%}
+                              <option value="{{beautician.name}}">{{beautician.name}}</option>
+                              {%endfor%}
+                            <!--<option value="">John Doe</option>
+                            <option value="">William Smith</option>
+                            <option value="">Danny Green</option>
+                            <option value="">Jason Thompson</option>-->
+                            
+
+                          </select>
+                        </div>
+                          </div>
+                                </div>
+                                </div>
+                                	
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <div class="input-wrap">
+                                <div class="icon"><span class="fa fa-calendar"></span></div>
+                                <input type="text" name="dat" class="form-control appointment_date" placeholder="Date">
+                            </div>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                    <div class="input-wrap">
+                                      <select name="tm" id="" class="form-control">
+                                {%for timeslots in timeslot%}
+                                <option value="{{timeslots.time}}">{{timeslots.time}}</option>
+                                {%endfor%}
+                                </select>
+                              </div>
+                                </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                          <input type="submit" value="Book Appointment" class="btn btn-secondary py-3 px-4">
+                        </div>
+                                </div>
+                        </div>
+              </form>
+              </div>
+            </div>
+            <br>
+            
+              {% endblock %} 

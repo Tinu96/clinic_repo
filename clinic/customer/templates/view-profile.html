@@ -1,0 +1,98 @@
+{%extends 'base.html'%}
+{% block title %}View profile{% endblock %}
+
+{%block body%}
+{%if messages%}
+{%for message in messages%}
+<div style="text-align: center;" class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+<div  style="margin-left:10px;">
+  <a href="{%url 'my-account' %}" class=" btn btn-warning">Go Back</a><br> 
+  </div>
+
+
+{%if profile%}
+{%for p in profile%}
+<div class="content-wrapper">
+  <!-- Content -->
+
+  <div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> My Account</h4>
+
+    <div class="row">
+      <div class="col-md-12">
+        
+          <hr class="my-0" />
+          <div class="card-body">
+            <form id="formAccountSettings"  >
+          
+              <div class="row">
+                <div class="mb-3 col-md-6">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <h3 class="form-control">{{p.first_name}}</h3>
+                                
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <h3 class="form-control">{{p.last_name}}</h3>  
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="email" class="form-label">E-mail</label>
+                  <h3 class="form-control">{{p.email}}</h3> 
+                </div>
+             
+                <div class="mb-3 col-md-6">
+                  <label class="form-label" for="phoneNumber">Phone Number</label>
+                  <div class="input-group input-group-merge">
+                   
+                    <h3 class="form-control">{{p.contactno}}</h3> 
+                  </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="address" class="form-label">Address</label>
+                  <h3 class="form-control">{{p.address}}</h3> 
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="state" class="form-label">State</label>
+                  <h3 class="form-control">{{p.state}}</h3> 
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="zipCode" class="form-label">Zip Code</label>
+                  <h3 class="form-control">{{p.zip_code}}</h3> 
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label class="form-label" for="country">Country</label>
+                  <h3 class="form-control">{{p.country}}</h3> 
+                </div>
+                <div class="mb-3 col-md-6">
+                  <label for="language" class="form-label">Language</label>
+                  <h3 class="form-control">{{p.language}}</h3> 
+                </div>
+                
+              <div class="mt-2">
+                <a href="{%url 'update-profile' p.id%}"  class="btn btn-primary me-2">Update</a>
+                <a href="{%url 'my-account'%}"  class="btn btn-primary me-2">Go Back</a>
+
+                <!-- <button type="reset" class="btn btn-outline-secondary">Cancel</button> -->
+              </div>
+            </form>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+{%endfor%}
+ 
+    
+    {%else%}
+    <div class="container" style="text-align: center;">
+      <p><strong>Oops!!! Seems like you have not yet created an account profile. Click on the below link to create your own account profile now!!!</strong></p>
+
+    </div>
+    <center><a href ="{%url 'create-profile'%}" class="btn btn-warning">Create your Account here</a></center>
+    <br>
+    {%endif%}
+{%endblock%}

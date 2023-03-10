@@ -1,0 +1,68 @@
+{%extends 'base1.html'%}
+{%block body %}
+{%if messages%}
+{%for message in messages%}
+<div class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
+<!-- Content wrapper -->
+<div class="content-wrapper">
+<!-- Content -->
+
+<div class="container-xxl flex-grow-1 container-p-y">
+<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Notifications /</span> Manage Notifications</h4>
+<br>
+<br>
+<a href="{%url 'dashboard'%}" class="btn btn-success">Go Back</a>
+{%if notifications%}
+<!-- Basic Bootstrap Table -->
+  <div class="card">
+  <h5 class="card-header"><strong>Notifications</strong></h5>
+  <div class="table-responsive text-nowrap">
+  <table class="table">
+  <thead>
+  <tr>
+    <th><strong>Booking ID</strong></th>
+    <th><strong>content</strong></th>
+    <th><strong>Status</strong></th>
+
+    <th><strong>Actions</strong></th>
+  </tr>
+  </thead>
+  {%for notification in notifications%}
+    <tbody class="table-border-bottom-0">
+    <tr>
+    <td><i class="fab fa-angular fa-lg text-danger me-3">{{notification.name}}</i> <strong></strong></td>
+    <td>{{notification.content}}</td>
+    <td>{{notification.status}}</td>
+
+    
+    <td>
+      <div class="dropdown">
+        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+          <i class="bx bx-dots-vertical-rounded"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{%url 'view-notification' notification.id%}"
+          ><i class="bx bx-info-circle me-1"></i> View</a>
+        
+         
+      </div>
+      </div>
+    </td>
+  </tr>
+ 
+</tbody>
+{%endfor%}
+</table>
+</div>
+</div>
+{%else%}
+<!--/ Basic Bootstrap Table -->
+    <div class="py-5">
+        <div class="row justify-content-center mb-3">
+          <center><strong>Sorry! No Notifications found at the moment</strong></center>
+        </div>
+    </div>
+    {%endif%}
+{%endblock%}
