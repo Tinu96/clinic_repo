@@ -44,7 +44,7 @@ def bookingg(request):
         te=Timeslots.objects.get(time=tme)
         dotr=request.POST.get('doc')
         do=Beautician.objects.get(name=dotr)
-        obj=ForBooking.objects.create(name=nam,phone=phn,services=se,bookingdate=dt,timeslot=te,docter=do)
+        obj=ForBooking.objects.create(user=request.user,name=nam,phone=phn,services=se,bookingdate=dt,timeslot=te,docter=do)
         obj.save()
         print("sucess")
         return redirect("bookingg")
@@ -281,15 +281,15 @@ def payment_complete(request,*args,**kwargs):
 @method_decorator(login_required,name="dispatch")
 class MyBookingView(ListView):
     template_name = "bookings.html"
-    model = Booking
+    model = ForBooking
     # context_object_name = 'bookings'
 
     def get_context_data(self,**kwargs):
         context = super().get_context_data(**kwargs)
-        context["bookings"] = Booking.objects.filter(user=self.request.user)       
-        context["currency"] = Currency.objects.filter(status=True)
+        context["bookings"] = ForBooking.objects.filter(user=self.request.user)
+       # context["currency"] = Currency.objects.filter(status=True)
         return context
-    
+
     # def get_queryset(self):
     #     return Booking.objects.filter(user=self.request.user).exclude(
     #         status="cancelled")

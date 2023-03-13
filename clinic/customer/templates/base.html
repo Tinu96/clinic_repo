@@ -29,7 +29,7 @@
   		<div class="container">
   			<div class="row">
 	    		<div class="col d-flex align-items-center">
-	    			<p class="mb-0"><a href="#">chiropractic@email.com</a> | <a href="#">Help Desk</a> | </p>
+	    			<p class="mb-0"><a href="#">chiropractic@email.com</a> | <a href="{% url 'contactus'%}">Help Desk</a> | </p>
 	    		</div>
 	    		<div class="col-4 d-flex justify-content-end">
 	    			<div class="social-media">
@@ -76,22 +76,22 @@
 	      </button>
         {%if user.is_authenticated%}
 				<div class="order-lg-last">
-          <a href="{%url 'bookingg'%}" class="btn btn-primary">Make an appointment</a>
+          <a href="{%url 'bookingg'%}" class="btn btn-primary">{% trans 'Make an appointment' %}</a>
         </div>
         {% else %}
         <div class="order-lg-last">
-          <a href="{%url 'login'%}" class="btn btn-primary">Make an appointment</a>
+          <a href="{%url 'login'%}" class="btn btn-primary">{% trans 'Make an appointment' %}</a>
         </div>
         {% endif %}
         {%if user.is_authenticated%}
         <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav mr-auto">
             <li class="nav-item active"><a href="{%url 'home'%}" class="nav-link">{% trans 'Home'%}</a></li>
-            <li class="nav-item"><a href="{% url 'shop'%}" class="nav-link">{% trans 'Departments' %}</a></li>
-	        	<li class="nav-item"><a href="{% url 'services'%}" class="nav-link">{% trans 'Services' %}</a></li>
-            <li class="nav-item"><a href="{% url 'my-account'%}" class="nav-link">{% trans 'My Profile' %}</a></li>
-            <li class="nav-item"><a href="{% url 'bookings'%}" class="nav-link">{% trans 'My Bookings' %}</a></li>
-            <li class="nav-item"><a href="{% url 'blogs'%}" class="nav-link">{% trans 'Blogs' %}</a></li>
+            <li class="nav-item"><a href="{% url 'shop'%}" class="nav-link">{% trans 'Departments'%}</a></li>
+	        	<li class="nav-item"><a href="{% url 'services'%}" class="nav-link">{% trans 'Services'%}</a></li>
+            <li class="nav-item"><a href="{% url 'my-account'%}" class="nav-link">{% trans 'My Profile'%}</a></li>
+            <li class="nav-item"><a href="{% url 'bookings'%}" class="nav-link">{% trans 'My Bookings'%}</a></li>
+            <li class="nav-item"><a href="{% url 'blogs'%}" class="nav-link">{% trans 'Blogs'%}</a></li>
           </ul>
 	      </div>
         {% else %}
@@ -104,22 +104,36 @@
 
 	        	<li class="nav-item"><a href="{% url 'contactus'%}" class="nav-link">{% trans 'Contact' %}</a></li>
             <li class="nav-item"><a href="{% url 'registration'%}" class="nav-link">{% trans 'Register' %}</a></li>
-	        </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {% trans 'Language' %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% get_current_language as LANGUAGE_CODE %}
+                  {% get_available_languages as LANGUAGES %}
+                  {% get_language_info_list for LANGUAGES as languages %}
+                  {% for lang in languages %}
+                  <a class="dropdown-item" href="/{{ lang.code }}/"> {{ lang.name_local }}</a>
+                  {% endfor %}
+              </div>
+          </li>
+          </ul>
 	      </div>
         {% endif %}
         {%if not request.user.is_anonymous%}
                       <div class="nav-item dropdown">
-                          <a href="#" class="nav-link dropdown" data-toggle="dropdown" id="account">ACCOUNT <i class="fa fa-angle-down mt-1"></i></a>
+                          <a href="#" class="nav-link dropdown" data-toggle="dropdown" id="account">{% trans 'ACCOUNT' %} <i class="fa fa-angle-down mt-1"></i></a>
                           <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                             {%if request.user.is_superuser%}
-                              <a href="{%url 'dashboard' %}" class="dropdown-item">ADMIN DASHBOARD</a>
+                              <a href="{%url 'dashboard' %}" class="dropdown-item">{% trans 'ADMIN DASHBOARD' %}</a>
                             {%endif%}
-                              <a href="{%url 'my-account'%}" class="dropdown-item">MY ACCOUNT</a>
-                              <a href="{%url 'logout'%}" class="dropdown-item">LOGOUT</a>
+                              <a href="{%url 'my-account'%}" class="dropdown-item">{% trans 'MY ACCOUNT' %}</a>
+                              <a href="{%url 'logout'%}" class="dropdown-item">{% trans 'LOGOUT' %}</a>
                           </div>
                       </div>
                       {%else%}
-                      <a href="{%url 'login'%}" class="nav-item nav-link">LOG-IN</a>
+                      <a href="{%url 'login'%}" class="nav-item nav-link">{% trans 'LOG-IN' %}</a>
                       {%endif%}
     </ul>
 
@@ -149,12 +163,12 @@
               <div class="ftco-footer-widget ml-md-5 py-5">
                 <h2 class="ftco-heading-2">Services</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Spinal Manupulation</a></li>
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Electrotherapy</a></li>
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Manual Lympahtic</a></li>
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Medical Acupuncture</a></li>
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Therapeutic Exercise</a></li>
-                  <li><a href="#" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Joint Mobilization</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Spinal Manupulation</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Electrotherapy</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Manual Lympahtic</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Medical Acupuncture</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Therapeutic Exercise</a></li>
+                  <li><a href="{% url 'shop'%}" class="py-1 d-block"><span class="fa fa-check mr-3"></span>Joint Mobilization</a></li>
                 </ul>
               </div>
             </div>
@@ -192,7 +206,7 @@
             <div class="col-md-12 text-center">
   
               <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="#" target="_blank">Technoland</a>
+    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by <!--<i class="fa fa-heart" aria-hidden="true"></i> --> <a href="#" target="_blank">Technoland</a>
     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
           </div>

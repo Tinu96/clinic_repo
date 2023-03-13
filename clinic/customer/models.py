@@ -120,6 +120,7 @@ class Booking(models.Model):
     status=models.CharField(max_length=200, choices=options, default="payment-pending")
 # for chiropractic booking model
 class ForBooking(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=300)
     phone = models.CharField(max_length=10)
     services = models.ForeignKey(Services, on_delete=models.CASCADE)

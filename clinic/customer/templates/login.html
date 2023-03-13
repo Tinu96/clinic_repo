@@ -3,6 +3,11 @@
 {% load static %}
 {% block title %} {% trans 'Login' %} {% endblock %}
 {% block body %}
+{%if messages%}
+{%for message in messages%}
+<div style="text-align:center;" class="alert alert-success" role="alert">{{message}}</div>
+{%endfor%}
+{%endif%}
 
 
     <!-- breadcrumb start-->
@@ -47,6 +52,7 @@
                                         <div>
                                         </div>
                                         <br>
+                                        
     
     
                                         <div class="col-md-6">

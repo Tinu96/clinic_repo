@@ -1,0 +1,166 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-13 11:48+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\clinic\settings.py:160
+msgid "English"
+msgstr ""
+
+#: .\clinic\settings.py:161
+msgid "Arabic"
+msgstr ""
+
+#: .\customer\templates\aboutus.html:4
+msgid "About Us"
+msgstr ""
+
+#: .\customer\templates\base.html:79 .\customer\templates\base.html:83
+msgid "Make an appointment"
+msgstr ""
+
+#: .\customer\templates\base.html:89 .\customer\templates\base.html:100
+#: .\customer\templates\shop.html:18
+msgid "Home"
+msgstr ""
+
+#: .\customer\templates\base.html:90
+msgid "Departments"
+msgstr ""
+
+#: .\customer\templates\base.html:91 .\customer\templates\base.html:103
+msgid "Services"
+msgstr ""
+
+#: .\customer\templates\base.html:92 .\customer\templates\my-profile.html:4
+#: .\customer\templates\my-profile.html:15
+msgid "My Profile"
+msgstr ""
+
+#: .\customer\templates\base.html:93
+msgid "My Bookings"
+msgstr ""
+
+#: .\customer\templates\base.html:94
+msgid "Blogs"
+msgstr ""
+
+#: .\customer\templates\base.html:101
+msgid "About"
+msgstr ""
+
+#: .\customer\templates\base.html:102
+msgid "Team"
+msgstr ""
+
+#: .\customer\templates\base.html:105
+msgid "Contact"
+msgstr ""
+
+#: .\customer\templates\base.html:106 .\customer\templates\registerpage.html:4
+msgid "Register"
+msgstr ""
+
+#: .\customer\templates\base.html:110
+msgid "Language"
+msgstr ""
+
+#: .\customer\templates\base.html:126
+msgid "ACCOUNT"
+msgstr ""
+
+#: .\customer\templates\base.html:129
+msgid "ADMIN DASHBOARD"
+msgstr ""
+
+#: .\customer\templates\base.html:131
+msgid "MY ACCOUNT"
+msgstr ""
+
+#: .\customer\templates\base.html:132
+msgid "LOGOUT"
+msgstr ""
+
+#: .\customer\templates\base.html:136
+msgid "LOG-IN"
+msgstr ""
+
+#: .\customer\templates\booking.html:4
+msgid "Booking"
+msgstr ""
+
+#: .\customer\templates\login.html:4 .\customer\templates\registerpage.html:88
+msgid "Login"
+msgstr ""
+
+#: .\customer\templates\login.html:28
+msgid "LOGIN"
+msgstr ""
+
+#: .\customer\templates\login.html:35
+msgid "Username"
+msgstr ""
+
+#: .\customer\templates\login.html:44
+msgid "Password"
+msgstr ""
+
+#: .\customer\templates\login.html:67
+msgid "Sign&nbspup"
+msgstr ""
+
+#: .\customer\templates\login.html:74
+msgid "Forgot password"
+msgstr ""
+
+#: .\customer\templates\my-profile.html:30
+msgid "Profile Details"
+msgstr ""
+
+#: .\customer\templates\my-profile.html:110
+#: .\customer\templates\my-profile.html:239
+msgid "Go Back"
+msgstr ""
+
+#: .\customer\templates\my-profile.html:167
+msgid "Create Your Profile Here"
+msgstr ""
+
+#: .\customer\templates\shop.html:4
+msgid "Shop"
+msgstr ""
+
+#: .\customer\templates\shop.html:17
+msgid " Category"
+msgstr ""
+
+#: .\customer\templates\shop.html:18
+msgid "Shop Category"
+msgstr ""
+
+#: .\customer\templates\shop.html:35
+msgid "Browse Dishes"
+msgstr ""
+
+#: .\customer\templates\shop.html:247
+msgid "No products available"
+msgstr ""
+
+#: .\customer\templates\team.html:4
+msgid "Our Team "
+msgstr ""

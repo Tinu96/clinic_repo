@@ -1,0 +1,405 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-13 11:48+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\clinic\settings.py:160
+msgid "English"
+msgstr "إنجليزي"
+
+#: .\clinic\settings.py:161
+msgid "Arabic"
+msgstr "عربي"
+
+#: .\customer\templates\aboutus.html:4
+msgid "About Us"
+msgstr ""
+
+#: .\customer\templates\base.html:79 .\customer\templates\base.html:83
+msgid "Make an appointment"
+msgstr "إحجز موعد"
+
+#: .\customer\templates\base.html:89 .\customer\templates\base.html:100
+#: .\customer\templates\shop.html:18
+msgid "Home"
+msgstr "بيت"
+
+#: .\customer\templates\base.html:90
+msgid "Departments"
+msgstr "الإدارات"
+
+#: .\customer\templates\base.html:91 .\customer\templates\base.html:103
+msgid "Services"
+msgstr "خدمات"
+
+#: .\customer\templates\base.html:92 .\customer\templates\my-profile.html:4
+#: .\customer\templates\my-profile.html:15
+msgid "My Profile"
+msgstr "ملفي"
+
+#: .\customer\templates\base.html:93
+msgid "My Bookings"
+msgstr "حجوزاتي"
+
+#: .\customer\templates\base.html:94
+msgid "Blogs"
+msgstr "المدونات"
+
+#: .\customer\templates\base.html:101
+msgid "About"
+msgstr "عن"
+
+#: .\customer\templates\base.html:102
+msgid "Team"
+msgstr "فريق"
+
+#: .\customer\templates\base.html:105
+msgid "Contact"
+msgstr "اتصل بنا"
+
+#: .\customer\templates\base.html:106 .\customer\templates\registerpage.html:4
+msgid "Register"
+msgstr "يسجل"
+
+#: .\customer\templates\base.html:110
+msgid "Language"
+msgstr "لغة"
+
+#: .\customer\templates\base.html:126
+msgid "ACCOUNT"
+msgstr "حساب"
+
+#: .\customer\templates\base.html:129
+msgid "ADMIN DASHBOARD"
+msgstr "لوحة تحكم المشرف"
+
+#: .\customer\templates\base.html:131
+msgid "MY ACCOUNT"
+msgstr "حسابي"
+
+#: .\customer\templates\base.html:132
+msgid "LOGOUT"
+msgstr "تسجيل خروج"
+
+#: .\customer\templates\base.html:136
+msgid "LOG-IN"
+msgstr "تسجيل الدخول"
+
+#: .\customer\templates\booking.html:4
+msgid "Booking"
+msgstr "الحجز"
+
+#: .\customer\templates\login.html:4 .\customer\templates\registerpage.html:88
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\customer\templates\login.html:28
+msgid "LOGIN"
+msgstr "تسجيل الدخول"
+
+#: .\customer\templates\login.html:35
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\customer\templates\login.html:44
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\customer\templates\login.html:67
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign&nbspup"
+msgstr "اشتراك"
+
+#: .\customer\templates\login.html:74
+msgid "Forgot password"
+msgstr "هل نسيت كلمة السر"
+
+#: .\customer\templates\my-profile.html:30
+msgid "Profile Details"
+msgstr "تفاصيل الملف الشخصي"
+
+#: .\customer\templates\my-profile.html:110
+#: .\customer\templates\my-profile.html:239
+msgid "Go Back"
+msgstr "عُد"
+
+#: .\customer\templates\my-profile.html:167
+msgid "Create Your Profile Here"
+msgstr "قم بإنشاء ملف التعريف الخاص بك هنا"
+
+#: .\customer\templates\shop.html:4
+msgid "Shop"
+msgstr "محل"
+
+#: .\customer\templates\shop.html:17
+#, fuzzy
+#| msgid "Category"
+msgid " Category"
+msgstr "الفئةالمميز"
+
+#: .\customer\templates\shop.html:18
+msgid "Shop Category"
+msgstr "الفئةالمميز"
+
+#: .\customer\templates\shop.html:35
+#, fuzzy
+#| msgid "Browse Categories"
+msgid "Browse Dishes"
+msgstr "تصفح الفئات"
+
+#: .\customer\templates\shop.html:247
+msgid "No products available"
+msgstr "لا توجد منتجات متاحة"
+
+#: .\customer\templates\team.html:4
+msgid "Our Team "
+msgstr "فريقنا"
+
+#, fuzzy
+#~| msgid "Browse Categories"
+#~ msgid "Dishes"
+#~ msgstr "تصفح الفئات"
+
+#~ msgid "Cart"
+#~ msgstr "عربة التسوق"
+
+#~ msgid "Wishlist"
+#~ msgstr "قائمة الرغبات"
+
+#, fuzzy
+#~| msgid "Blogs"
+#~ msgid "Blog"
+#~ msgstr "المدونات"
+
+#~ msgid "My Orders"
+#~ msgstr "طلباتي"
+
+#~ msgid "Logout"
+#~ msgstr "تسجيل خروج"
+
+#~ msgid "Category"
+#~ msgstr "الفئةالمميز"
+
+#~ msgid "No blogs found at the moment"
+#~ msgstr "لم يتم العثور على مدونات في الوقت الحالي"
+
+#~ msgid "Cart Products"
+#~ msgstr "منتجات"
+
+#~ msgid "Product"
+#~ msgstr "منتجات"
+
+#~ msgid "Price"
+#~ msgstr "سعر"
+
+#~ msgid "Quantity"
+#~ msgstr "كمية"
+
+#~ msgid "Total"
+#~ msgstr "المجموع"
+
+#~ msgid "Subtotal"
+#~ msgstr "المجموع الفرعي"
+
+#~ msgid "Your Cart is empty"
+#~ msgstr "عربة التسوق فارغة"
+
+#~ msgid "Continue shopping"
+#~ msgstr "مواصلة التسوق"
+
+#~ msgid "Checkout"
+#~ msgstr "الدفع"
+
+#~ msgid " Checkout"
+#~ msgstr "الدفع"
+
+#~ msgid "Shipping Details"
+#~ msgstr "تفاصيل الشحن"
+
+#~ msgid "Your Order"
+#~ msgstr "طلبك"
+
+#, fuzzy
+#~| msgid "Shipping Details"
+#~ msgid "Shipping Charges"
+#~ msgstr "تفاصيل الشحن"
+
+#~ msgid "I’ve read and accept the"
+#~ msgstr "لقد قرأت وقبلت"
+
+#~ msgid "terms & conditions"
+#~ msgstr "البنود و الظروف"
+
+#~ msgid "Contact us"
+#~ msgstr "اتصل بنا"
+
+#~ msgid "My orders"
+#~ msgstr "طلباتي"
+
+#~ msgid "You dont have made any orders"
+#~ msgstr "أنت لم تصدر أي أوامر"
+
+#~ msgid "Wishlist Products"
+#~ msgstr "جميع المنتجات"
+
+#~ msgid "Your Wishlist is Empty"
+#~ msgstr "عربة التسوق فارغة"
+
+#~ msgid "HOME"
+#~ msgstr "بيت"
+
+#~ msgid "SHOP"
+#~ msgstr "محل"
+
+#~ msgid "BLOG"
+#~ msgstr "مدونة"
+
+#~ msgid "CONTACT"
+#~ msgstr "اتصال"
+
+#~ msgid "LANGUAGE"
+#~ msgstr "لغة"
+
+#~ msgid "Dashboard"
+#~ msgstr "لوحة القيادة"
+
+#~ msgid "SIGN IN"
+#~ msgstr "تسجيل الدخول"
+
+#~ msgid "Top Products"
+#~ msgstr "أهمالمنتجات"
+
+#~ msgid "All Products"
+#~ msgstr "جميع المنتجات"
+
+#~ msgid "Send a message"
+#~ msgstr "ارسل رسالة"
+
+#~ msgid "Our Blogs"
+#~ msgstr "مدوناتنا"
+
+#~ msgid "Quick Links"
+#~ msgstr "روابط سريعة"
+
+#~ msgid "Resources"
+#~ msgstr "موارد"
+
+#~ msgid "Products"
+#~ msgstr "منتجات"
+
+#~ msgid "Our Company"
+#~ msgstr "شركتنا"
+
+#~ msgid "Saudi Arabia, Jeddah"
+#~ msgstr "المملكة العربية السعودية ، جدة"
+
+#~ msgid "Copyright"
+#~ msgstr "حقوق النشر"
+
+#~ msgid "All rights reserved | Developed by"
+#~ msgstr "جميع الحقوق محفوظة | طورت بواسطة"
+
+#~ msgid "Continue Shopping"
+#~ msgstr "مواصلة التسوق"
+
+#~ msgid "Proceed to checkout"
+#~ msgstr "الشروع في الخروج"
+
+#~ msgid "Product Checkout"
+#~ msgstr "المنتج الخروج"
+
+#~ msgid "Billing Details"
+#~ msgstr "تفاصيل الفاتورة"
+
+#~ msgid "Shipping"
+#~ msgstr "شحن"
+
+#~ msgid "Proceed to Payment"
+#~ msgstr "الشروع في دفع"
+
+#~ msgid "contact us"
+#~ msgstr "اتصل بنا"
+
+#~ msgid "Get in Touch"
+#~ msgstr "ابقى على تواصل"
+
+#~ msgid "Saudi Arabia , Jeddah"
+#~ msgstr "المملكة العربية السعودية ، جدة"
+
+#~ msgid "Street, No"
+#~ msgstr "رقم الشارع"
+
+#~ msgid "Mon to Fri"
+#~ msgstr "من الإثنين إلى الجمعة"
+
+#~ msgid "Send us your query anytime"
+#~ msgstr "أرسل لنا استفسارك في أي وقت"
+
+#~ msgid "Wood & Cloth"
+#~ msgstr "الخشب والقماش"
+
+#~ msgid "Sofa"
+#~ msgstr "كنبة"
+
+#~ msgid ""
+#~ "A sofa sets the tone of your living space, it is the anchor piece around "
+#~ "which you set up the rest of the elements of the house. The design of the "
+#~ "sofa defines you as a person and so are the other pieces arranged around "
+#~ "it"
+#~ msgstr ""
+#~ "الأريكة تحدد نغمة غرفة المعيشة الخاصة بك ، إنها قطعة التثبيت المحيطةالتي "
+#~ "قمت بإعدادها لبقية عناصر المنزل. تصميمالأريكة تحددك كشخص وكذلك القطع "
+#~ "الأخرى مرتبة حولها"
+
+#~ msgid "buy now"
+#~ msgstr "اشتريالآن"
+
+#~ msgid "Cloth & Wood"
+#~ msgstr "القماش والخشب"
+
+#~ msgid "Featured Category"
+#~ msgstr "الفئةالمميز"
+
+#~ msgid "NO featured products"
+#~ msgstr "لا توجد منتجات مميزة"
+
+#~ msgid "Featured Products"
+#~ msgstr "منتجات"
+
+#~ msgid "Weekly Sale on"
+#~ msgstr "التخفيضات الأسبوعية على"
+
+#~ msgid "60"
+#~ msgstr "٦۰"
+
+#~ msgid "Off All Products"
+#~ msgstr "جميع المنتجات"
+
+#~ msgid "Join Our Newsletter"
+#~ msgstr "اشترك في صحيفتنا الإخبارية"
+
+#~ msgid "Subscribe to get Updated with new offers"
+#~ msgstr "اشترك للحصول على تحديث مع العروض الجديدة"
+
+#~ msgid "Login To continue"
+#~ msgstr "تسجيل الدخول للمتابعة"
+
+#~ msgid "Update"
+#~ msgstr "تحديث"
